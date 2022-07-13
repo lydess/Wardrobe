@@ -15,14 +15,7 @@ struct HomeView: View {
         VStack {
             Text("Wardobe DB Home").padding(50)
             
-            Button("Set DB"){doshowactivity.toggle()}
-            if doshowactivity {
-                ProgressView().progressViewStyle(.circular).task {
-                    await DataHandler.GetDBItems()
-                    await ViewContext.setlist()
-                    doshowactivity.toggle()
-                }
-            }
+         
         }
     }
 }

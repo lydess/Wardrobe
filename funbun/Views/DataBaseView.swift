@@ -16,9 +16,11 @@ struct DataBaseView: View {
     
         VStack {
             Spacer()
+            ScrollView{
             ForEach(ViewContext.examplelist, id: \.id) { item in
-                    Text(item.name!)
+                WardrobeItemCell(itemtitle: item.name!)
             }
+            }.menuIndicator(.hidden)
             Spacer()
             HStack {
                 Button("add DB item"){DataHandler.addnewitem()
