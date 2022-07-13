@@ -57,6 +57,7 @@ class Database:ObservableObject {
         }catch {
             print("failure")
         }
+        Save()
     }
     
     func GetDBItems() async -> [Items]{

@@ -10,6 +10,8 @@ import SwiftUI
 
 var Globalcontext = GlobalContext()
 var DataHandler = Database()
+let ScreenWidth = UIScreen.main.bounds.width
+let ScreenHeight = UIScreen.main.bounds.height
 struct RootView: View {
     
     @StateObject var ViewContext = Globalcontext
@@ -24,7 +26,7 @@ struct RootView: View {
         case 0:
             HomeView()
         case 1:
-            DataBaseView()
+            DataBaseView().onDisappear(perform: {print("sleeping")})
         default: EmptyView()
                                         }
                 }

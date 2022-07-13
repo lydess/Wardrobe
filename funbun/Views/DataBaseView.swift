@@ -23,9 +23,12 @@ struct DataBaseView: View {
                     
             }
             }.menuIndicator(.hidden)
+            .frame(width: ScreenWidth, height: ScreenHeight - 100, alignment: .center)
+            .padding(.top,50)
+            
             Spacer()
             HStack {
-                Button("add DB item"){DataHandler.addnewitem()
+                Button("Add DB item"){DataHandler.addnewitem()
                     AddItemIndicator.toggle()
                 }
                 Button("Delete DB item"){
