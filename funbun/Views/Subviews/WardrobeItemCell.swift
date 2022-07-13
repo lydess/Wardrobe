@@ -12,37 +12,84 @@ struct WardrobeItemCell: View {
     var itemimage = Image(systemName: "tshirt")
     @State var Deleteicon = false
     @State var OffsetX = CGFloat(0)
+    @State var DeleteOffset = false
+    @State var RotationOffset = 0.0
+    @State var IconOpacity = 0.0
+ 
     
     
     var body: some View {
         
         HStack {
-                itemimage.padding()
-                
-                Text(itemtitle).padding(.trailing, 75)
-            //if Deleteicon {Rectangle().frame(width: 100, height: 75, alignment: .center)}
-            }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .top).foregroundColor(.gray).cornerRadius(25)})
+            Rectangle().frame(width: 1, height: 65, alignment: .trailing).foregroundColor(.clear).padding(.trailing, 60)
+          
             
-            .frame(width: ScreenWidth, height: 75, alignment: .center)
-            .offset(x: OffsetX, y: 0)
-            .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
-                .onChanged({ gesture in
-                    if gesture.translation.width <= 50 {OffsetX = gesture.translation.width}
-                    print(gesture.translation.width)
-
+            HStack {
+                itemimage
+                    
+                Text(itemtitle).lineLimit(2).padding(.trailing, 0).multilineTextAlignment(.center).frame(width: 150, height: 75, alignment: .center)
+                
+                }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .trailing).foregroundColor(.gray).cornerRadius(25)})
+                
+                .frame(width: 250, height: 75, alignment: .center)
+                .offset(x: OffsetX, y: 0)
+                .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
+                    
+                    .onChanged({ gesture in
+                        if gesture.translation.width <= 25 {OffsetX = gesture.translation.width
+                            if RotationOffset >= -90 {
+                            RotationOffset = Double(gesture.translation.width)
+                              
+                                IconOpacity = RotationOffset/(-90)
                             }
-                          )
-                    .onEnded({finished in
-                        if OffsetX < -100 {
-                            withAnimation(.spring()) {
-                                OffsetX = -100}
-                            Deleteicon.toggle()
-                        } else {
-                        withAnimation(.spring()) {
-                            OffsetX = 0}
                         }
-                    })
-                        )
+                        
+                        if DeleteOffset {OffsetX = -100
+                            DeleteOffset = false
+                            RotationOffset = -90
+                        }
+                        print(RotationOffset/90)
+                       
+                        
+                        
+
+                                }
+                              )
+                        .onEnded({finished in
+                            
+                            if OffsetX < -100 {
+                                withAnimation(.spring()) {
+                                    OffsetX = -100}
+                                //RotationOffset = 90
+                                Deleteicon.toggle()
+                                DeleteOffset.toggle()
+                                // IconOpacity = 1.0
+                                
+                            } else {
+                            withAnimation(.spring()) {
+                                OffsetX = 0}
+                            }
+                            
+                            if DeleteOffset == false {
+                                withAnimation(.spring()) {
+                                    RotationOffset = 0
+                                    IconOpacity = 0
+                                }
+                            }
+                            
+                        })
+            )
+            Image(systemName: "minus.circle")
+                .resizable()
+                .frame(width: 35, height: 35, alignment: .center)
+                .foregroundColor(.red)
+                .rotationEffect(.degrees(RotationOffset))
+                .opacity(IconOpacity)
+                
+                
+                
+                
+        }
             
         
             
