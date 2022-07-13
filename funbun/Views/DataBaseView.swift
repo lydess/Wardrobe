@@ -33,13 +33,13 @@ struct DataBaseView: View {
             
             
             if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                ViewContext.examplelist = await DataHandler.GetDBItems()
+                await ViewContext.setlist()
                 AddItemIndicator.toggle()
             }}
             
             if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await DataHandler.removetopitem()
-                ViewContext.examplelist = await DataHandler.GetDBItems()
+                await ViewContext.setlist()
                 DeleteItemIndicator.toggle()
             }}
         }

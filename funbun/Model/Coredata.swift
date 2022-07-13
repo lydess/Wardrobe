@@ -95,8 +95,6 @@ class Database:ObservableObject {
     }
     
     
-    func testcontainer() {
-        print(context)
-    }
+
    
 }

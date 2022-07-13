@@ -18,9 +18,10 @@ class funbunTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testCheckDBConnection() async throws {
+    func testFetch() async throws {
         let itemcount = await DataHandler.GetDBItems().capacity
         XCTAssert(itemcount > 0)
+        
     }
     
     func testPerformanceExample() throws {
