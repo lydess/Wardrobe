@@ -15,11 +15,11 @@ struct NavBar: View {
             
             HStack {
                 Spacer()
-                Button(action: {ViewContext.CurrentScreen = 0}, label: {Image(systemName: "house.fill")})
+                Button(action: {ViewContext.CurrentScreen = 0}, label: {Image(systemName: "house")})
                 Spacer()
                 Button(action: {ViewContext.CurrentScreen = 1}, label: {Image(systemName: "list.bullet")})
                 Spacer()
-                Button(action: {ViewContext.CurrentScreen = 2}, label: {Image(systemName: "info.circle.fill")})
+                Button(action: {ViewContext.CurrentScreen = 2}, label: {Image(systemName: "info.circle")})
                 Spacer()
                 
             }

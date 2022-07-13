@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 
 class GlobalContext: ObservableObject {
+    static var rootbackground = Color(uiColor: UIColor(named: "BackgroundColor")!)
+    static var CellBackground = Color(uiColor: UIColor(named: "CellColor")!)
     @Published var CurrentScreen = 0
     @Published var examplelist = [Items]()
     

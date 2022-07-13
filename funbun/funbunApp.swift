@@ -17,6 +17,8 @@ struct funbunApp: App {
         WindowGroup {
             RootView()
                 .environment(\.managedObjectContext, datamanager.context.viewContext)
+                .background(GlobalContext.rootbackground)
+                
                 
                 
                 

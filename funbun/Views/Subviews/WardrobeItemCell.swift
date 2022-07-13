@@ -29,7 +29,7 @@ struct WardrobeItemCell: View {
                     
                 Text(itemtitle).lineLimit(2).padding(.trailing, 0).multilineTextAlignment(.center).frame(width: 150, height: 75, alignment: .center)
                 
-                }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .trailing).foregroundColor(.gray).cornerRadius(25)})
+            }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .trailing).foregroundColor(GlobalContext.CellBackground).cornerRadius(25)})
                 
                 .frame(width: 250, height: 75, alignment: .center)
                 .offset(x: OffsetX, y: 0)
