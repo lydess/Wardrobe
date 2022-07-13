@@ -11,6 +11,7 @@ struct DataBaseView: View {
     @StateObject var ViewContext = Globalcontext
     @State var AddItemIndicator = false
     @State var DeleteItemIndicator = false
+    @State var OffsetX = CGFloat(0)
     
     var body: some View {
     
@@ -19,6 +20,7 @@ struct DataBaseView: View {
             ScrollView{
             ForEach(ViewContext.examplelist, id: \.id) { item in
                 WardrobeItemCell(itemtitle: item.name!)
+                    
             }
             }.menuIndicator(.hidden)
             Spacer()
@@ -33,13 +35,13 @@ struct DataBaseView: View {
             
             
             if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                await ViewContext.setlist()
+                await ViewContext.UpdateList()
                 AddItemIndicator.toggle()
             }}
             
             if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await DataHandler.removetopitem()
-                await ViewContext.setlist()
+                await ViewContext.UpdateList()
                 DeleteItemIndicator.toggle()
             }}
         }

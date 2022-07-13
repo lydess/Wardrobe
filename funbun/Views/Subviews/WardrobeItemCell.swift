@@ -10,15 +10,35 @@ import SwiftUI
 struct WardrobeItemCell: View {
     var itemtitle: String
     var itemimage = Image(systemName: "tshirt")
+    @State var OffsetX = CGFloat(0)
+    
     var body: some View {
-        ZStack {
-            Text("").background(content: {Rectangle().frame(width: 250, height: 75, alignment: .top).foregroundColor(.gray).cornerRadius(25)})
-            HStack {
+        
+        HStack {
                 itemimage.padding()
                 Spacer()
                 Text(itemtitle).padding(.trailing, 75)
-            }.frame(width: 250, height: 75, alignment: .center)
-        }
+            }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .top).foregroundColor(.gray).cornerRadius(25)})
+            
+            .frame(width: 250, height: 75, alignment: .center)
+            .offset(x: OffsetX, y: 0)
+            .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
+                .onChanged({ gesture in
+                    OffsetX = gesture.translation.width
+                    print(gesture.translation.width)
+
+                            }
+                          )
+                    .onEnded({finished in
+                        withAnimation(.spring()) {
+                            OffsetX = 0}
+                        
+                    })
+                        )
+            
+        
+            
+        
     }
 }
 
@@ -27,3 +47,6 @@ struct WardrobeItemCell_Previews: PreviewProvider {
         WardrobeItemCell(itemtitle: "Debug name")
     }
 }
+
+
+

@@ -14,8 +14,6 @@ struct HomeView: View {
     var body: some View {
         VStack {
             Text("Wardobe DB Home").padding(50)
-            
-         
         }
     }
 }

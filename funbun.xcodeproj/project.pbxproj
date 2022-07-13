@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */; };
 		CFFF802C287D1ED600AAD098 /* funbunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802B287D1ED600AAD098 /* funbunApp.swift */; };
 		CFFF802E287D1ED600AAD098 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802D287D1ED600AAD098 /* RootView.swift */; };
 		CFFF8030287D1ED700AAD098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFF802F287D1ED700AAD098 /* Assets.xcassets */; };
@@ -96,6 +97,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CFAAFFF0287E82BB00389E1B /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		CFFF801F287D1ED600AAD098 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +127,7 @@
 		CFFF802A287D1ED600AAD098 /* funbun */ = {
 			isa = PBXGroup;
 			children = (
+				CFAAFFF0287E82BB00389E1B /* Debug */,
 				CFFF8058287D200200AAD098 /* Model */,
 				CFFF8055287D1FA700AAD098 /* Views */,
 				CFFF802B287D1ED600AAD098 /* funbunApp.swift */,
@@ -332,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFFF8076287E774800AAD098 /* UserContext.swift in Sources */,
+				CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */,
 				CFFF8078287E774800AAD098 /* Networking.swift in Sources */,
 				CFFF8073287E774400AAD098 /* RootView.swift in Sources */,
 				CFFF8069287E771200AAD098 /* WDB.xcdatamodeld in Sources */,
