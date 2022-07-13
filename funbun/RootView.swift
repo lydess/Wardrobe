@@ -15,6 +15,7 @@ let ScreenHeight = UIScreen.main.bounds.height
 struct RootView: View {
     
     @StateObject var ViewContext = Globalcontext
+    @State var changingviews = false
     var body: some View {
         ZStack  {
         VStack{
@@ -26,9 +27,16 @@ struct RootView: View {
         case 0:
             HomeView()
         case 1:
-            DataBaseView().onDisappear(perform: {print("sleeping")})
+            DataBaseView().onAppear(perform: {changingviews.toggle()})
         default: EmptyView()
                                         }
+            if changingviews {
+                ProgressView().progressViewStyle(.circular).task {
+                   await ViewContext.UpdateList()
+                }
+            } else {
+                /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
+            }
                 }
                 }
         

@@ -16,17 +16,6 @@ struct DataBaseView: View {
     var body: some View {
     
         VStack {
-            Spacer()
-            ScrollView{
-            ForEach(ViewContext.examplelist, id: \.id) { item in
-                WardrobeItemCell(itemtitle: item.name!)
-                    
-            }
-            }.menuIndicator(.hidden)
-            .frame(width: ScreenWidth, height: ScreenHeight - 100, alignment: .center)
-            .padding(.top,50)
-            
-            Spacer()
             HStack {
                 Button("Add DB item"){DataHandler.addnewitem()
                     AddItemIndicator.toggle()
@@ -34,7 +23,12 @@ struct DataBaseView: View {
                 Button("Delete DB item"){
                     DeleteItemIndicator.toggle()
                 }
-            }.padding(.bottom, 50)
+            }.padding(.top, 75)
+            Spacer()
+            DB_scrollview()
+            
+            Spacer()
+            
             
             
             if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {

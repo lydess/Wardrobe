@@ -13,8 +13,8 @@ struct WardrobeItemCell: View {
     @State var Deleteicon = false
     @State var OffsetX = CGFloat(0)
     @State var DeleteOffset = false
-    @State var RotationOffset = 0.0
-    @State var IconOpacity = 0.0
+    @State var RotationOffset = 90.0
+    @State var IconOpacity = 1.0
  
     
     
@@ -37,10 +37,14 @@ struct WardrobeItemCell: View {
                     
                     .onChanged({ gesture in
                         if gesture.translation.width <= 25 {OffsetX = gesture.translation.width
-                            if RotationOffset >= -90 {
-                            RotationOffset = Double(gesture.translation.width)
-                              
-                                IconOpacity = RotationOffset/(-90)
+                            if RotationOffset >= 0 {
+                                withAnimation(.spring()) {
+                                    RotationOffset = gesture.translation.width / 2
+                                   
+                                }
+                            
+                                
+                                
                             }
                         }
                         
@@ -48,7 +52,7 @@ struct WardrobeItemCell: View {
                             DeleteOffset = false
                             RotationOffset = -90
                         }
-                        print(RotationOffset/90)
+                        print(RotationOffset)
                        
                         
                         
@@ -63,7 +67,7 @@ struct WardrobeItemCell: View {
                                 //RotationOffset = 90
                                 Deleteicon.toggle()
                                 DeleteOffset.toggle()
-                                // IconOpacity = 1.0
+                                
                                 
                             } else {
                             withAnimation(.spring()) {
@@ -73,7 +77,7 @@ struct WardrobeItemCell: View {
                             if DeleteOffset == false {
                                 withAnimation(.spring()) {
                                     RotationOffset = 0
-                                    IconOpacity = 0
+                                   
                                 }
                             }
                             

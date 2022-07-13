@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF007C0F287ECD860065778F /* DB scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF007C0E287ECD860065778F /* DB scrollview.swift */; };
 		CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */; };
 		CFFF802C287D1ED600AAD098 /* funbunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802B287D1ED600AAD098 /* funbunApp.swift */; };
 		CFFF802E287D1ED600AAD098 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802D287D1ED600AAD098 /* RootView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF007C0E287ECD860065778F /* DB scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB scrollview.swift"; sourceTree = "<group>"; };
 		CFFF8028287D1ED600AAD098 /* funbun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = funbun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFF802B287D1ED600AAD098 /* funbunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funbunApp.swift; sourceTree = "<group>"; };
 		CFFF802D287D1ED600AAD098 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				CFFF8062287D21C500AAD098 /* NavBar.swift */,
 				CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */,
+				CF007C0E287ECD860065778F /* DB scrollview.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				CFFF805C287D202200AAD098 /* Coredata.swift in Sources */,
 				CFFF8066287D8FE800AAD098 /* WDB.xcdatamodeld in Sources */,
 				CFFF802E287D1ED600AAD098 /* RootView.swift in Sources */,
+				CF007C0F287ECD860065778F /* DB scrollview.swift in Sources */,
 				CFFF802C287D1ED600AAD098 /* funbunApp.swift in Sources */,
 				CFFF805E287D203B00AAD098 /* UserContext.swift in Sources */,
 				CFFF8060287D211400AAD098 /* DataBaseView.swift in Sources */,
