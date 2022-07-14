@@ -16,6 +16,7 @@ struct DB_scrollview: View {
                 
         }
         }.menuIndicator(.hidden)
+            
         
         
     }

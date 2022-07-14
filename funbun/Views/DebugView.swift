@@ -9,11 +9,12 @@ import SwiftUI
 
 struct DebugView: View {
     @State var Sheetdisplay = false
+    @StateObject var ViewContext = Globalcontext
     
     var body: some View {
         VStack {
             Text("Debug view")
-            Button("display sheet"){Sheetdisplay.toggle()}.sheet(isPresented: $Sheetdisplay, content: {AddItemForm()})
+            Button("display sheet"){ViewContext.showsheet.toggle()}
         }
     }
 }

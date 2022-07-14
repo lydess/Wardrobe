@@ -12,9 +12,9 @@ import SwiftUI
 class GlobalContext: ObservableObject {
     static var rootbackground = Color(uiColor: UIColor(named: "BackgroundColor")!)
     static var CellBackground = Color(uiColor: UIColor(named: "CellColor")!)
+    static var CurrentFormInput = FormInput(type: .InventoryItem)
     @Published var CurrentScreen = 0
     @Published var CurrentItemList = [Items]()
-    static var CurrentFormInput = FormInput(type: .InventoryItem)
     @Published var showsheet = false
     
     // Updates the ViewModel With the current list in the database

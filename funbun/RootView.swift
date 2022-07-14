@@ -18,6 +18,7 @@ struct RootView: View {
     @State var changingviews = false
     var body: some View {
         ZStack  {
+            
         VStack{
         Spacer()
         NavBar()
@@ -37,11 +38,18 @@ struct RootView: View {
             if changingviews {
                 ProgressView().progressViewStyle(.circular).task {
                    await ViewContext.UpdateList()
+                    changingviews.toggle()
                 }
             } else {
                 /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
             }
                 }
+            if ViewContext.showsheet {
+                withAnimation(.easeOut, {Rectangle().frame(width: 100, height: 100, alignment: .center).foregroundColor(.red)})
+                //AddItemForm()
+                  //  .frame(width: ScreenWidth - 50, height: ScreenHeight - 100, alignment: .center).foregroundColor(.red)
+                    //.cornerRadius(10)
+            }
                 }
         
     }

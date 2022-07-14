@@ -12,14 +12,17 @@ struct DataBaseView: View {
     @State var AddItemIndicator = false
     @State var DeleteItemIndicator = false
     @State var OffsetX = CGFloat(0)
+    @State var ShowAddItem = false
     
     var body: some View {
     
         VStack {
             HStack {
-                Button("Add DB item"){DataHandler.addnewitem()
-                    AddItemIndicator.toggle()
+                Button("Add DB item"){
+                    AddItemIndicator = true
+                    
                 }
+                
                 Button("Delete DB item"){
                     DeleteItemIndicator.toggle()
                 }
