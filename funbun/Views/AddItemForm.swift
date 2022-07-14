@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AddItemForm: View {
+    var UserFormInput = FormInput()
+    @State var NameTextField = ""
     var body: some View {
         Form(content: {
-            Text("f")
+            TextField("item name", text: $NameTextField)
         })
     }
 }
