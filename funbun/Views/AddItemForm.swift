@@ -32,7 +32,6 @@ struct AddItemForm: View {
                 
                 if indicator {
                     ProgressView().progressViewStyle(.circular).task {
-                        
                         await DataHandler.GetDBItems()
                         indicator.toggle()
                     }
