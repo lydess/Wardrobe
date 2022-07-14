@@ -28,6 +28,8 @@ struct RootView: View {
             HomeView()
         case 1:
             DataBaseView().onAppear(perform: {changingviews.toggle()})
+        case 2:
+            DebugView()
         case 10:
             AddItemForm()
         default: EmptyView()

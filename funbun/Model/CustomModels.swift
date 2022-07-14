@@ -7,9 +7,17 @@
 
 import Foundation
 
+enum FormType {
+    case InventoryItem
+    case NewUser
+    case SettingsProfile
+
+}
+
 struct FormInput {
-    var type = String
+    var type:FormType
     var Name = ""
     var id = UUID()
+    var date = Date()
 }
 

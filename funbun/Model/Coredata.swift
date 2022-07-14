@@ -41,6 +41,15 @@ class Database:ObservableObject {
         Save()
     }
     
+    func AddForm(form: FormInput) {
+        let item = Items(context: DataHandler.context.viewContext)
+        item.id = UUID()
+        item.name = form.Name
+        item.date = form.date
+        
+        Save()
+    }
+    
     func removetopitem() async {
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
         fetchrequest.returnsObjectsAsFaults = false
