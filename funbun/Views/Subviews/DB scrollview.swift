@@ -11,11 +11,12 @@ struct DB_scrollview: View {
     @StateObject var ViewContext = Globalcontext
     var body: some View {
         ScrollView{
-        ForEach(ViewContext.examplelist, id: \.id) { item in
+        ForEach(ViewContext.CurrentItemList, id: \.id) { item in
             WardrobeItemCell(itemtitle: item.name!)
                 
         }
         }.menuIndicator(.hidden)
+            
         
         
     }
