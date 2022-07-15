@@ -16,6 +16,7 @@ class GlobalContext: ObservableObject {
     @Published var CurrentScreen = 0
     @Published var CurrentItemList = [Items]()
     @Published var showsheet = false
+    @Published var IsInDissmiss = false
     
     
     // Updates the ViewModel With the current list in the database

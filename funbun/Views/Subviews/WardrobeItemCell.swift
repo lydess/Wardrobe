@@ -36,7 +36,7 @@ struct WardrobeItemCell: View {
                 .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
                     
                     .onChanged({ gesture in
-                        if gesture.translation.width <= 25 {OffsetX = gesture.translation.width
+                        if gesture.translation.width <= 11 {OffsetX = gesture.translation.width
                             if RotationOffset >= 0 {
                                 withAnimation(.spring()) {
                                     RotationOffset = gesture.translation.width / 2

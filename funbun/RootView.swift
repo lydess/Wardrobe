@@ -37,6 +37,7 @@ struct RootView: View {
                 .blur(radius: ViewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
+                
         default: EmptyView()
                                         }
             if changingviews {
@@ -49,15 +50,23 @@ struct RootView: View {
             }
                 }
             if ViewContext.showsheet {
-                Rectangle()
+                AddItemForm()
                     .frame(width: ScreenWidth - 100, height: ScreenHeight-150, alignment: .center)
-                    .foregroundColor(.red)
-                    .gesture(DragGesture(minimumDistance: 15, coordinateSpace: .global)
-                        .onChanged({ gesture in
-                            print("swiped")
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .global)
+                        .onEnded({ gesture in
+                            if ViewContext.IsInDissmiss {
+                                
+                            } else {
+                                ViewContext.IsInDissmiss = true
+                                withAnimation(.spring(), {ViewContext.showsheet.toggle()})
+                                ViewContext.IsInDissmiss.toggle()
+                                
+                            }
                         
                 })
-                                                                                                                                        
+                             
                 
                 )
                 //AddItemForm()

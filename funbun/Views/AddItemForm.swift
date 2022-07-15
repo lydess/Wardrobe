@@ -14,30 +14,51 @@ struct AddItemForm: View {
     @State var Datechosen = Date()
     @State var indicator = false
     var body: some View {
-        Form(content: {
-            Section{
-            TextField("item name", text: $NameTextField)
-                DatePicker("Date added", selection: $Datechosen)
-            }
-            Section{
-                Button("Submit"){
-                    var UserFormInput = FormInput(type: .InventoryItem)
-                        UserFormInput.Name = NameTextField
-                        UserFormInput.date = Datechosen
-                        UserFormInput.id = UUID()
-                        DataHandler.AddForm(form: UserFormInput)
-                        indicator.toggle()
-                        
-                }
+        ZStack {
+            VStack {
+                Rectangle()
+                    .frame(width: ScreenWidth-100, height: ScreenHeight - 150, alignment: .center)
+                .foregroundColor(GlobalContext.CellBackground)
                 
-                if indicator {
-                    ProgressView().progressViewStyle(.circular).task {
-                        await DataHandler.GetDBItems()
-                        indicator.toggle()
-                    }
-                }
             }
-            })
+                
+            VStack{
+                HStack {
+                    Text("Item Name:")
+                        .padding()
+                    Spacer()
+                }
+                TextField("", text: $NameTextField).textFieldStyle(.roundedBorder)
+                HStack {
+                    Text("Date Added")
+                        .padding()
+                    Spacer()
+                }
+                DatePicker(selection: $Datechosen, label: {})
+                Button("Submit"){
+                        var UserFormInput = FormInput(type: .InventoryItem)
+                            UserFormInput.Name = NameTextField
+                            UserFormInput.date = Datechosen
+                            UserFormInput.id = UUID()
+                            DataHandler.AddForm(form: UserFormInput)
+                            indicator.toggle()
+                            
+                }
+                .padding(.top, 50)
+                
+                .buttonStyle(.borderedProminent)
+                    
+                    if indicator {
+                        ProgressView().progressViewStyle(.circular).task {
+                            await DataHandler.GetDBItems()
+                            indicator.toggle()
+                        }
+                    }
+                Spacer()
+            
+                
+            }.padding()
+        }
     }
 }
 

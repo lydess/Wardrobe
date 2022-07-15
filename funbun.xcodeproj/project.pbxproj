@@ -110,6 +110,7 @@
 		CFAAFFF0287E82BB00389E1B /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				CFB80B9528802EE3007F02FC /* DebugView.swift */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 			children = (
 				CFFF8061287D21BB00AAD098 /* Subviews */,
 				CFFF8056287D1FB200AAD098 /* HomeView.swift */,
-				CFB80B9528802EE3007F02FC /* DebugView.swift */,
 				CFFF805F287D211400AAD098 /* DataBaseView.swift */,
 				CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */,
 			);
