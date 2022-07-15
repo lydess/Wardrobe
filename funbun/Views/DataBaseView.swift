@@ -18,21 +18,22 @@ struct DataBaseView: View {
     
         VStack {
             HStack {
-                Button("Add DB item"){
-                    AddItemIndicator = true
+                Button("display sheet"){
+                    withAnimation(.easeIn, {ViewContext.showsheet.toggle()})
+                    
                     
                 }
                 
                 Button("Delete DB item"){
                     DeleteItemIndicator.toggle()
+                    
                 }
             }.padding(.top, 75)
+            
             Spacer()
             DB_scrollview()
             
             Spacer()
-            
-            
             
             if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await ViewContext.UpdateList()

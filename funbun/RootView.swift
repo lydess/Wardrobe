@@ -27,10 +27,14 @@ struct RootView: View {
         switch ViewContext.CurrentScreen {
         case 0:
             HomeView()
+                .blur(radius: ViewContext.showsheet ? 5 : 0)
         case 1:
-            DataBaseView().onAppear(perform: {changingviews.toggle()})
+            DataBaseView()
+                .onAppear(perform: {changingviews.toggle()})
+                .blur(radius: ViewContext.showsheet ? 5 : 0)
         case 2:
             DebugView()
+                .blur(radius: ViewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
         default: EmptyView()
@@ -45,7 +49,17 @@ struct RootView: View {
             }
                 }
             if ViewContext.showsheet {
-                withAnimation(.easeOut, {Rectangle().frame(width: 100, height: 100, alignment: .center).foregroundColor(.red)})
+                Rectangle()
+                    .frame(width: ScreenWidth - 100, height: ScreenHeight-150, alignment: .center)
+                    .foregroundColor(.red)
+                    .gesture(DragGesture(minimumDistance: 15, coordinateSpace: .global)
+                        .onChanged({ gesture in
+                            print("swiped")
+                        
+                })
+                                                                                                                                        
+                
+                )
                 //AddItemForm()
                   //  .frame(width: ScreenWidth - 50, height: ScreenHeight - 100, alignment: .center).foregroundColor(.red)
                     //.cornerRadius(10)

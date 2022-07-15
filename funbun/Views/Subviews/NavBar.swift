@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NavBar: View {
     @StateObject var ViewContext = Globalcontext
-    var buttsize = CGFloat(30)
+    var buttsize = CGFloat(25)
     var body: some View {
         
         VStack{

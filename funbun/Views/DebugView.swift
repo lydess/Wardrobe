@@ -14,7 +14,7 @@ struct DebugView: View {
     var body: some View {
         VStack {
             Text("Debug view")
-            Button("display sheet"){ViewContext.showsheet.toggle()}
+            
         }
     }
 }
