@@ -34,7 +34,7 @@ class Database:ObservableObject {
             }
         }
     func addnewitem() {
-        let item = Items(context: DataHandler.context.viewContext)
+        let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
         item.name = "test example"
         
@@ -42,9 +42,9 @@ class Database:ObservableObject {
     }
     
     func AddForm(form: FormInput) {
-        let item = Items(context: DataHandler.context.viewContext)
+        let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
-        item.name = form.Name
+        item.name = form.name
         item.date = form.date
         
         Save()

@@ -13,13 +13,13 @@ struct AddItemForm: View {
     @State var NameTextField = ""
     @State var Datechosen = Date()
     @State var indicator = false
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var ViewContext = globalcontext
     
     var body: some View {
         ZStack {
             VStack {
                 Rectangle()
-                    .frame(width: ScreenWidth-100, height: ScreenHeight - 150, alignment: .center)
+                    .frame(width: screenWidth-100, height: screenHeight - 150, alignment: .center)
                 .foregroundColor(GlobalContext.CellBackground)
                 
             }
@@ -38,11 +38,11 @@ struct AddItemForm: View {
                 }
                 DatePicker(selection: $Datechosen, label: {})
                 Button("Submit"){
-                        var UserFormInput = FormInput(type: .InventoryItem)
-                            UserFormInput.Name = NameTextField
+                        var UserFormInput = FormInput(type: .inventoryItem)
+                            UserFormInput.name = NameTextField
                             UserFormInput.date = Datechosen
                             UserFormInput.id = UUID()
-                            DataHandler.AddForm(form: UserFormInput)
+                            dataHandler.AddForm(form: UserFormInput)
                             
                             indicator.toggle()
                             
@@ -53,8 +53,8 @@ struct AddItemForm: View {
                     
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
-                            await DataHandler.GetDBItems()
-                            await ViewContext.UpdateList()
+                            await dataHandler.GetDBItems()
+                            await ViewContext.updateList()
                             withAnimation(.easeInOut){ViewContext.showsheet.toggle()}
                             indicator.toggle()
                             

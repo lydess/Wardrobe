@@ -8,13 +8,13 @@
 import SwiftUI
 
 let userdefaults = UserDefaults()
-var Globalcontext = GlobalContext()
-var DataHandler = Database()
-let ScreenWidth = UIScreen.main.bounds.width
-let ScreenHeight = UIScreen.main.bounds.height
+var globalcontext = GlobalContext()
+var dataHandler = Database()
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
 struct RootView: View {
     
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var viewContext = globalcontext
     @State var changingviews = false
     var body: some View {
         ZStack  {
@@ -24,17 +24,17 @@ struct RootView: View {
         NavBar()
         }
         VStack  {
-        switch ViewContext.CurrentScreen {
+        switch viewContext.currentScreen {
         case 0:
             HomeView()
-                .blur(radius: ViewContext.showsheet ? 5 : 0)
+                .blur(radius: viewContext.showsheet ? 5 : 0)
         case 1:
             DataBaseView()
                 .onAppear(perform: {changingviews.toggle()})
-                .blur(radius: ViewContext.showsheet ? 5 : 0)
+                .blur(radius: viewContext.showsheet ? 5 : 0)
         case 2:
             DebugView()
-                .blur(radius: ViewContext.showsheet ? 5 : 0)
+                .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
                 
@@ -42,26 +42,26 @@ struct RootView: View {
                                         }
             if changingviews {
                 ProgressView().progressViewStyle(.circular).task {
-                   await ViewContext.UpdateList()
+                   await viewContext.updateList()
                     changingviews.toggle()
                 }
             } else {
                 /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
             }
                 }
-            if ViewContext.showsheet {
+            if viewContext.showsheet {
                 AddItemForm()
-                    .frame(width: ScreenWidth - 100, height: ScreenHeight-150, alignment: .center)
+                    .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .center)
                     .cornerRadius(15)
                     .foregroundColor(.black)
                     .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .global)
                         .onEnded({ gesture in
-                            if ViewContext.IsInDissmiss {
+                            if viewContext.isInDismiss {
                                 
                             } else {
-                                ViewContext.IsInDissmiss = true
-                                withAnimation(.spring(), {ViewContext.showsheet.toggle()})
-                                ViewContext.IsInDissmiss.toggle()
+                                viewContext.isInDismiss = true
+                                withAnimation(.spring(), {viewContext.showsheet.toggle()})
+                                viewContext.isInDismiss.toggle()
                                 
                             }
                         

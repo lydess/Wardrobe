@@ -8,15 +8,15 @@
 import Foundation
 
 enum FormType {
-    case InventoryItem
-    case NewUser
-    case SettingsProfile
+    case inventoryItem
+    case newUser
+    case settingsProfile
 
 }
 
 struct FormInput {
     var type:FormType
-    var Name = ""
+    var name = ""
     var id = UUID()
     var date = Date()
 }

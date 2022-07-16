@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DataBaseView: View {
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var ViewContext = globalcontext
     @State var AddItemIndicator = false
     @State var DeleteItemIndicator = false
     @State var OffsetX = CGFloat(0)
@@ -35,13 +35,13 @@ struct DataBaseView: View {
             Spacer()
             
             if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                await ViewContext.UpdateList()
+                await ViewContext.updateList()
                 AddItemIndicator.toggle()
             }}
             
             if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                await DataHandler.removetopitem()
-                await ViewContext.UpdateList()
+                await dataHandler.removetopitem()
+                await ViewContext.updateList()
                 DeleteItemIndicator.toggle()
             }}
         }

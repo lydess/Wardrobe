@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DB_scrollview: View {
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var ViewContext = globalcontext
     var body: some View {
         ScrollView{
-        ForEach(ViewContext.CurrentItemList, id: \.id) { item in
+        ForEach(ViewContext.currentList, id: \.id) { item in
             WardrobeItemCell(itemtitle: item.name!)
                 
         }
