@@ -26,6 +26,7 @@ struct DebugView: View {
                     DeleteItemIndicator.toggle()
                 }}
             }.frame(width: ScreenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
+            Button("get user defaults"){print(userdefaults.string(forKey: "name_preference"))}
             
             Spacer()
             
