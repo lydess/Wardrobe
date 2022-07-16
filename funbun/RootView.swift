@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+let userdefaults = UserDefaults()
 var Globalcontext = GlobalContext()
 var DataHandler = Database()
 let ScreenWidth = UIScreen.main.bounds.width

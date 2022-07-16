@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF007C0F287ECD860065778F /* DB scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF007C0E287ECD860065778F /* DB scrollview.swift */; };
 		CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */; };
+		CF7B6A6B2882388800B78049 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF7B6A6A2882388800B78049 /* Settings.bundle */; };
 		CFA8E687287ED36C00C1C3ED /* AddItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */; };
 		CFB80B94287FF62B007F02FC /* CustomModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B93287FF62B007F02FC /* CustomModels.swift */; };
 		CFB80B9628802EE3007F02FC /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B9528802EE3007F02FC /* DebugView.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		CF007C0E287ECD860065778F /* DB scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB scrollview.swift"; sourceTree = "<group>"; };
+		CF7B6A6A2882388800B78049 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemForm.swift; sourceTree = "<group>"; };
 		CFB80B93287FF62B007F02FC /* CustomModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModels.swift; sourceTree = "<group>"; };
 		CFB80B9528802EE3007F02FC /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		CFFF801F287D1ED600AAD098 = {
 			isa = PBXGroup;
 			children = (
+				CF7B6A6A2882388800B78049 /* Settings.bundle */,
 				CFB80B97288040B7007F02FC /* todo.rtf */,
 				CFFF802A287D1ED600AAD098 /* funbun */,
 				CFFF803B287D1ED700AAD098 /* funbunTests */,
@@ -181,7 +184,6 @@
 				CFFF8061287D21BB00AAD098 /* Subviews */,
 				CFFF8056287D1FB200AAD098 /* HomeView.swift */,
 				CFFF805F287D211400AAD098 /* DataBaseView.swift */,
-				CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +203,7 @@
 		CFFF8061287D21BB00AAD098 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */,
 				CFFF8062287D21C500AAD098 /* NavBar.swift */,
 				CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */,
 				CF007C0E287ECD860065778F /* DB scrollview.swift */,
@@ -312,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7B6A6B2882388800B78049 /* Settings.bundle in Resources */,
 				CFFF8033287D1ED700AAD098 /* Preview Assets.xcassets in Resources */,
 				CFB80B98288040B7007F02FC /* todo.rtf in Resources */,
 				CFFF8030287D1ED700AAD098 /* Assets.xcassets in Resources */,

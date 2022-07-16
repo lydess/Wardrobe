@@ -13,6 +13,8 @@ struct AddItemForm: View {
     @State var NameTextField = ""
     @State var Datechosen = Date()
     @State var indicator = false
+    @StateObject var ViewContext = Globalcontext
+    
     var body: some View {
         ZStack {
             VStack {
@@ -41,6 +43,7 @@ struct AddItemForm: View {
                             UserFormInput.date = Datechosen
                             UserFormInput.id = UUID()
                             DataHandler.AddForm(form: UserFormInput)
+                            
                             indicator.toggle()
                             
                 }
@@ -51,7 +54,10 @@ struct AddItemForm: View {
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
                             await DataHandler.GetDBItems()
+                            await ViewContext.UpdateList()
+                            withAnimation(.easeInOut){ViewContext.showsheet.toggle()}
                             indicator.toggle()
+                            
                         }
                     }
                 Spacer()
@@ -63,7 +69,9 @@ struct AddItemForm: View {
 }
 
 struct AddItemForm_Previews: PreviewProvider {
+    
     static var previews: some View {
         AddItemForm()
+        
     }
 }

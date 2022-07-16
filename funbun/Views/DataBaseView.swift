@@ -18,17 +18,16 @@ struct DataBaseView: View {
     
         VStack {
             HStack {
-                Button("display sheet"){
-                    withAnimation(.easeIn, {ViewContext.showsheet.toggle()})
-                    
-                    
-                }
+                Spacer()
+                Button(action: {
+                    withAnimation(.easeIn, {ViewContext.showsheet.toggle()})},
+                       label: {
+                    Image(systemName: "plus")
+                })
                 
-                Button("Delete DB item"){
-                    DeleteItemIndicator.toggle()
-                    
-                }
-            }.padding(.top, 75)
+               
+            }.padding([.top, .trailing], 25)
+            
             
             Spacer()
             DB_scrollview()

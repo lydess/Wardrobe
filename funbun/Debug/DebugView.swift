@@ -10,10 +10,27 @@ import SwiftUI
 struct DebugView: View {
     @State var Sheetdisplay = false
     @StateObject var ViewContext = Globalcontext
-    
+    @State var DeleteItemIndicator = false
     var body: some View {
         VStack {
-            Text("Debug view")
+            Text("Debug view").font(.largeTitle).bold()
+            Spacer()
+            VStack {
+                Button("Delete DB item"){
+                    DeleteItemIndicator.toggle()
+                    
+                }
+                if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
+                    await DataHandler.removetopitem()
+                    await ViewContext.UpdateList()
+                    DeleteItemIndicator.toggle()
+                }}
+            }.frame(width: ScreenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
+            
+            Spacer()
+            
+            
+            
             
         }
     }
