@@ -13,8 +13,9 @@ struct DB_scrollview: View {
         ScrollView{
         ForEach(ViewContext.CurrentItemList, id: \.id) { item in
             WardrobeItemCell(itemtitle: item.name!)
-                
+            
         }
+            
         }.menuIndicator(.hidden)
             
         

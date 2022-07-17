@@ -10,6 +10,7 @@ import SwiftUI
 struct WardrobeItemCell: View {
     var itemtitle: String
     var itemimage = Image(systemName: "tshirt")
+    
     @State var Deleteicon = false
     @State var OffsetX = CGFloat(0)
     @State var DeleteOffset = false
@@ -52,7 +53,7 @@ struct WardrobeItemCell: View {
                             DeleteOffset = false
                             RotationOffset = -90
                         }
-                        print(RotationOffset)
+                        print(OffsetX)
                        
                         
                         
