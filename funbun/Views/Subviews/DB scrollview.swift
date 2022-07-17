@@ -7,23 +7,20 @@
 
 import SwiftUI
 
-struct DB_scrollview: View {
-    @StateObject var ViewContext = globalcontext
+struct DbScrollView: View {
+    @StateObject var viewContext = globalcontext
     var body: some View {
-        ScrollView{
-        ForEach(ViewContext.currentList, id: \.id) { item in
+        ScrollView {
+        ForEach(viewContext.currentList, id: \.id) { item in
             WardrobeItemCell(itemtitle: item.name!)
                 
         }
         }.menuIndicator(.hidden)
-            
-        
-        
     }
 }
 
-struct DB_scrollview_Previews: PreviewProvider {
+struct DbScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        DB_scrollview()
+        DbScrollView()
     }
 }

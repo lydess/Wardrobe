@@ -9,7 +9,7 @@ import SwiftUI
 
 let userdefaults = UserDefaults()
 var globalcontext = GlobalContext()
-var dataHandler = Database()
+var dataHandler = DataBase()
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 struct RootView: View {

@@ -10,11 +10,11 @@ import SwiftUI
 struct WardrobeItemCell: View {
     var itemtitle: String
     var itemimage = Image(systemName: "tshirt")
-    @State var Deleteicon = false
-    @State var OffsetX = CGFloat(0)
-    @State var DeleteOffset = false
-    @State var RotationOffset = 90.0
-    @State var IconOpacity = 1.0
+    @State var deleteicon = false
+    @State var offsetX = CGFloat(0)
+    @State var deleteOffset = false
+    @State var rotationOffset = 90.0
+    @State var iconOpacity = 1.0
  
     
     
@@ -32,14 +32,14 @@ struct WardrobeItemCell: View {
             }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .trailing).foregroundColor(GlobalContext.CellBackground).cornerRadius(25)})
                 
                 .frame(width: 250, height: 75, alignment: .center)
-                .offset(x: OffsetX, y: 0)
+                .offset(x: offsetX, y: 0)
                 .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
                     
                     .onChanged({ gesture in
-                        if gesture.translation.width <= 11 {OffsetX = gesture.translation.width
-                            if RotationOffset >= 0 {
+                        if gesture.translation.width <= 11 {offsetX = gesture.translation.width
+                            if rotationOffset >= 0 {
                                 withAnimation(.spring()) {
-                                    RotationOffset = gesture.translation.width / 2
+                                    rotationOffset = gesture.translation.width / 2
                                    
                                 }
                             
@@ -48,11 +48,11 @@ struct WardrobeItemCell: View {
                             }
                         }
                         
-                        if DeleteOffset {OffsetX = -100
-                            DeleteOffset = false
-                            RotationOffset = -90
+                        if deleteOffset {offsetX = -100
+                            deleteOffset = false
+                            rotationOffset = -90
                         }
-                        print(RotationOffset)
+                        print(rotationOffset)
                        
                         
                         
@@ -61,22 +61,22 @@ struct WardrobeItemCell: View {
                               )
                         .onEnded({finished in
                             
-                            if OffsetX < -100 {
+                            if offsetX < -100 {
                                 withAnimation(.spring()) {
-                                    OffsetX = -100}
+                                    offsetX = -100}
                                 //RotationOffset = 90
-                                Deleteicon.toggle()
-                                DeleteOffset.toggle()
+                                deleteicon.toggle()
+                                deleteOffset.toggle()
                                 
                                 
                             } else {
                             withAnimation(.spring()) {
-                                OffsetX = 0}
+                                offsetX = 0}
                             }
                             
-                            if DeleteOffset == false {
+                            if deleteOffset == false {
                                 withAnimation(.spring()) {
-                                    RotationOffset = 0
+                                    rotationOffset = 0
                                    
                                 }
                             }
@@ -87,8 +87,8 @@ struct WardrobeItemCell: View {
                 .resizable()
                 .frame(width: 35, height: 35, alignment: .center)
                 .foregroundColor(.red)
-                .rotationEffect(.degrees(RotationOffset))
-                .opacity(IconOpacity)
+                .rotationEffect(.degrees(rotationOffset))
+                .opacity(iconOpacity)
                 
                 
                 

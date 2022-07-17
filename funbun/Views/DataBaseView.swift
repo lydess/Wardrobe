@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DataBaseView: View {
-    @StateObject var ViewContext = globalcontext
-    @State var AddItemIndicator = false
-    @State var DeleteItemIndicator = false
-    @State var OffsetX = CGFloat(0)
-    @State var ShowAddItem = false
+    @StateObject var viewContext = globalcontext
+    @State var addItemIndicator = false
+    @State var deleteItemIndicator = false
+    @State var offsetX = CGFloat(0)
+    @State var showAddItem = false
     
     var body: some View {
     
@@ -20,7 +20,7 @@ struct DataBaseView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    withAnimation(.easeIn, {ViewContext.showsheet.toggle()})},
+                    withAnimation(.easeIn, {viewContext.showsheet.toggle()})},
                        label: {
                     Image(systemName: "plus")
                 })
@@ -30,19 +30,19 @@ struct DataBaseView: View {
             
             
             Spacer()
-            DB_scrollview()
+            DbScrollView()
             
             Spacer()
             
-            if AddItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                await ViewContext.updateList()
-                AddItemIndicator.toggle()
+            if addItemIndicator {ProgressView().progressViewStyle(.circular).task {
+                await viewContext.updateList()
+                addItemIndicator.toggle()
             }}
             
-            if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
+            if deleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await dataHandler.removetopitem()
-                await ViewContext.updateList()
-                DeleteItemIndicator.toggle()
+                await viewContext.updateList()
+                deleteItemIndicator.toggle()
             }}
         }
         
