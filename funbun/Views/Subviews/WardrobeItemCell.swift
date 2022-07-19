@@ -16,6 +16,7 @@ struct WardrobeItemCell: View {
     @State var DeleteOffset = false
     @State var RotationOffset = 90.0
     @State var IconOpacity = 0.0
+    @State var DeleteConfirmation = false
  
     
     
@@ -92,6 +93,12 @@ struct WardrobeItemCell: View {
                 .foregroundColor(.red)
                 .rotationEffect(.degrees(RotationOffset))
                 .opacity(IconOpacity)
+                .alert("delete", isPresented: $DeleteConfirmation, actions: {})
+                .gesture(TapGesture().onEnded({ gesture in
+                    DeleteConfirmation.toggle()
+                }))
+                
+                
                 
                 
                 
