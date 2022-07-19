@@ -19,7 +19,6 @@ class DataBase: ObservableObject {
             })
             return container
         }()
-    
     func save () {
             let context = context.viewContext
             if context.hasChanges {
@@ -37,13 +36,11 @@ class DataBase: ObservableObject {
         item.name = "test example"
         save()
     }
-    
     func addForm(form: FormInput) {
         let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
         item.name = form.name
         item.date = form.date
-        
         save()
     }
     func removetopitem() async {
@@ -59,26 +56,18 @@ class DataBase: ObservableObject {
         }
         save()
     }
-    
-    func getDBItems() async -> [Items]{
+    func getDBItems() async -> [Items] {
         var final = [Items]()
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
         fetchrequest.returnsObjectsAsFaults = false
-   
-        do{
+        do {
             try await context.viewContext.perform {
             let result = try fetchrequest.execute()
-           
             final = result
-            
         }
-        }catch {
+        } catch {
             print("failure")
         }
         return final
     }
-    
-    
-
-   
 }

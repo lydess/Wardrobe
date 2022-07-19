@@ -15,9 +15,8 @@ enum FormType {
 }
 
 struct FormInput {
-    var type:FormType
+    var type: FormType
     var name = ""
     var id = UUID()
     var date = Date()
 }
-

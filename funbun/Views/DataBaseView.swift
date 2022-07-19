@@ -13,9 +13,7 @@ struct DataBaseView: View {
     @State var deleteItemIndicator = false
     @State var offsetX = CGFloat(0)
     @State var showAddItem = false
-    
     var body: some View {
-    
         VStack {
             HStack {
                 Spacer()
@@ -24,28 +22,20 @@ struct DataBaseView: View {
                        label: {
                     Image(systemName: "plus")
                 })
-                
-               
             }.padding([.top, .trailing], 25)
-            
-            
             Spacer()
             DbScrollView()
-            
             Spacer()
-            
             if addItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await viewContext.updateList()
                 addItemIndicator.toggle()
             }}
-            
             if deleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await dataHandler.removetopitem()
                 await viewContext.updateList()
                 deleteItemIndicator.toggle()
             }}
         }
-        
     }
 }
 

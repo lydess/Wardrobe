@@ -7,7 +7,7 @@
 
 import XCTest
 
-class funbunUITestsLaunchTests: XCTestCase {
+class FunbunUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

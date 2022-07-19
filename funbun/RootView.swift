@@ -13,17 +13,15 @@ var dataHandler = DataBase()
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 struct RootView: View {
-    
     @StateObject var viewContext = globalcontext
     @State var changingviews = false
     var body: some View {
-        ZStack  {
-            
-        VStack{
+        ZStack {
+        VStack {
         Spacer()
         NavBar()
         }
-        VStack  {
+        VStack {
         switch viewContext.currentScreen {
         case 0:
             HomeView()
@@ -37,7 +35,6 @@ struct RootView: View {
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
-                
         default: EmptyView()
                                         }
             if changingviews {
@@ -46,7 +43,7 @@ struct RootView: View {
                     changingviews.toggle()
                 }
             } else {
-                /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
+                Text("Broken Screen Number")
             }
                 }
             if viewContext.showsheet {
@@ -55,28 +52,18 @@ struct RootView: View {
                     .cornerRadius(15)
                     .foregroundColor(.black)
                     .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .global)
-                        .onEnded({ gesture in
+                        .onEnded({ _ in
                             if viewContext.isInDismiss {
-                                
                             } else {
                                 viewContext.isInDismiss = true
                                 withAnimation(.spring(), {viewContext.showsheet.toggle()})
                                 viewContext.isInDismiss.toggle()
-                                
                             }
-                        
                 })
-                             
-                
                 )
-                //AddItemForm()
-                  //  .frame(width: ScreenWidth - 50, height: ScreenHeight - 100, alignment: .center).foregroundColor(.red)
-                    //.cornerRadius(10)
             }
                 }
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

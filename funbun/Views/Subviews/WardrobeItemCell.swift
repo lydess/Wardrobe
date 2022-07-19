@@ -10,104 +10,77 @@ import SwiftUI
 struct WardrobeItemCell: View {
     var itemtitle: String
     var itemimage = Image(systemName: "tshirt")
-    
-    @State var Deleteicon = false
-    @State var OffsetX = CGFloat(0)
-    @State var DeleteOffset = false
-    @State var RotationOffset = 90.0
-    @State var IconOpacity = 0.0
-    @State var DeleteConfirmation = false
- 
-    
-    
+    @State var deleteicon = false
+    @State var offsetX = CGFloat(0)
+    @State var deleteOffset = false
+    @State var rotationOffset = 90.0
+    @State var iconOpacity = 0.0
+    @State var deleteConfirmation = false
     var body: some View {
-        
         HStack {
             Rectangle().frame(width: 1, height: 65, alignment: .trailing).foregroundColor(.clear).padding(.trailing, 60)
-          
-            
             HStack {
                 itemimage
-                    
-                Text(itemtitle).lineLimit(2).padding(.trailing, 0).multilineTextAlignment(.center).frame(width: 150, height: 75, alignment: .center)
-                
-            }.background(content: {Rectangle().frame(width: 250, height: 75, alignment: .trailing).foregroundColor(GlobalContext.CellBackground).cornerRadius(25)})
-                
+                Text(itemtitle).lineLimit(2).padding(.trailing, 0)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 150, height: 75, alignment: .center)
+                    }.background(content: {
+                             Rectangle()
+                            .frame(width: 250, height: 75, alignment: .trailing)
+                            .foregroundColor(GlobalContext.cellBackground)
+                            .cornerRadius(25)
+                            })
                 .frame(width: 250, height: 75, alignment: .center)
-                .offset(x: OffsetX, y: 0)
+                .offset(x: offsetX, y: 0)
                 .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
-                    
                     .onChanged({ gesture in
-                        if gesture.translation.width <= 11 {OffsetX = gesture.translation.width
-                            if RotationOffset >= 0 {
+                        if gesture.translation.width <= 11 {offsetX = gesture.translation.width
+                            if rotationOffset >= 0 {
                             }
                         }
-                    
-                        if DeleteOffset {
-                            OffsetX = -100
-                            withAnimation(.easeInOut){RotationOffset = 0}
+                        if deleteOffset {
+                            offsetX = -100
+                            withAnimation(.easeInOut) {rotationOffset = 0 }
                         }
                             }
                               )
-                        .onEnded({finished in
-                            
-                            if OffsetX < -100 {
-                                withAnimation(.easeInOut){RotationOffset = 0
-            
-                                }
-                                
+                        .onEnded({ _ in
+
+                            if offsetX < -100 {
+                                withAnimation(.easeInOut) {rotationOffset = 0}
                                 withAnimation(.spring()) {
-                                OffsetX = -100
-                                Deleteicon = true
-                                DeleteOffset = true
+                                offsetX = -100
+                                deleteicon = true
+                                deleteOffset = true
                                 }
                                 withAnimation(.easeOut) {
-                                    IconOpacity = 1
+                                    iconOpacity = 1
                                 }
-                                
-                                
-                                
+
                             } else {
                             withAnimation(.spring()) {
-                                OffsetX = 0
-                                Deleteicon = false
-                                DeleteOffset = false
+                                offsetX = 0
+                                deleteicon = false
+                                deleteOffset = false
                             }
                                 withAnimation(.easeOut) {
-                                    IconOpacity = 0
-                                    RotationOffset = 90
+                                    iconOpacity = 0
+                                    rotationOffset = 90
                             }
-                                
-                                
                             }
-                            
-                            
-                            
-                            
-                            
                         })
             )
             Image(systemName: "minus.circle")
                 .resizable()
                 .frame(width: 35, height: 35, alignment: .center)
                 .foregroundColor(.red)
-                .rotationEffect(.degrees(RotationOffset))
-                .opacity(IconOpacity)
-                .alert("delete", isPresented: $DeleteConfirmation, actions: {})
-                .gesture(TapGesture().onEnded({ gesture in
-                    DeleteConfirmation.toggle()
+                .rotationEffect(.degrees(rotationOffset))
+                .opacity(iconOpacity)
+                .alert("delete", isPresented: $deleteConfirmation, actions: {})
+                .gesture(TapGesture().onEnded({ _ in
+                    deleteConfirmation.toggle()
                 }))
-                
-                
-                
-                
-                
-                
         }
-            
-        
-            
-        
     }
 }
 
@@ -116,6 +89,3 @@ struct WardrobeItemCell_Previews: PreviewProvider {
         WardrobeItemCell(itemtitle: "Debug name")
     }
 }
-
-
-

@@ -12,10 +12,8 @@ struct DbScrollView: View {
     var body: some View {
         ScrollView {
         ForEach(viewContext.currentList, id: \.id) { item in
-            WardrobeItemCell(itemtitle: item.name!)
-            
+            WardrobeItemCell(itemtitle: item.name!)   
         }
-            
         }.menuIndicator(.hidden)
     }
 }

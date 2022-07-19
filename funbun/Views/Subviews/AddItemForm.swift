@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AddItemForm: View {
-   
-
     @State var nameTextField = ""
     @State var datechosen = Date()
     @State var indicator = false
@@ -20,11 +18,9 @@ struct AddItemForm: View {
             VStack {
                 Rectangle()
                     .frame(width: screenWidth-100, height: screenHeight - 150, alignment: .center)
-                .foregroundColor(GlobalContext.CellBackground)
-                
+                .foregroundColor(GlobalContext.cellBackground)
             }
-                
-            VStack{
+            VStack {
                 HStack {
                     Text("Item Name:")
                         .padding()
@@ -37,41 +33,32 @@ struct AddItemForm: View {
                     Spacer()
                 }
                 DatePicker(selection: $datechosen, label: {})
-                Button("Submit"){
+                Button("Submit") {
                         var userFormInput = FormInput(type: .inventoryItem)
                             userFormInput.name = nameTextField
                             userFormInput.date = datechosen
                             userFormInput.id = UUID()
                             dataHandler.addForm(form: userFormInput)
-                            
                             indicator.toggle()
-                            
                 }
                 .padding(.top, 50)
-                
                 .buttonStyle(.borderedProminent)
-                    
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
                             await dataHandler.getDBItems()
                             await viewContext.updateList()
-                            withAnimation(.easeInOut){viewContext.showsheet.toggle()}
+                            withAnimation(.easeInOut) {viewContext.showsheet.toggle()}
                             indicator.toggle()
-                            
                         }
                     }
                 Spacer()
-            
-                
             }.padding()
         }
     }
 }
 
 struct AddItemForm_Previews: PreviewProvider {
-    
     static var previews: some View {
         AddItemForm()
-        
     }
 }

@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct NavBar: View {
-    @StateObject var ViewContext = globalcontext
+    @StateObject var viewContext = globalcontext
     var buttsize = CGFloat(25)
     var body: some View {
-        
-        VStack{
-            
+        VStack {          
             HStack {
                 Spacer()
-                Button(action: {ViewContext.currentScreen = 0}, label: {Image(systemName: "house").resizable().frame(width: buttsize, height: buttsize, alignment: .center)})
+                Button(action: {viewContext.currentScreen = 0}, label: {Image(systemName: "house")
+                    .resizable()
+                    .frame(width: buttsize, height: buttsize, alignment: .center)})
                 Spacer()
-                Button(action: {ViewContext.currentScreen = 1}, label: {Image(systemName: "list.bullet").resizable().frame(width: buttsize, height: buttsize, alignment: .center)})
+                Button(action: {viewContext.currentScreen = 1}, label: {Image(systemName: "list.bullet")
+                    .resizable()
+                    .frame(width: buttsize, height: buttsize, alignment: .center)})
                 Spacer()
-                Button(action: {ViewContext.currentScreen = 2}, label: {Image(systemName: "info.circle").resizable().frame(width: buttsize, height: buttsize, alignment: .center)})
+                Button(action: {viewContext.currentScreen = 2}, label: {Image(systemName: "info.circle")
+                    .resizable()
+                    .frame(width: buttsize, height: buttsize, alignment: .center)})
                 Spacer()
-                
             }
-        
-        
         }
-        
     }
 }
 

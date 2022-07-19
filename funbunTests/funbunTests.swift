@@ -21,9 +21,7 @@ class FunbunTests: XCTestCase {
     func testFetch() async throws {
         let itemcount = await dataHandler.getDBItems().capacity
         XCTAssert(itemcount > 0)
-        
     }
-    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
