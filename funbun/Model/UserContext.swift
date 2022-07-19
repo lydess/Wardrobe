@@ -22,4 +22,7 @@ class GlobalContext: ObservableObject {
     func updateList() async {
         currentList = await dataHandler.getDBItems()
     }
+    func removeFromList(cellid: UUID) async {
+        await dataHandler.removeCell(cellid: cellid)
+    }
 }

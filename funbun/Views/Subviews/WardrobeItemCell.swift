@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WardrobeItemCell: View {
     var itemtitle: String
+    var cellid: UUID
     var itemimage = Image(systemName: "tshirt")
+    @StateObject var viewContext = globalcontext
     @State var deleteicon = false
     @State var offsetX = CGFloat(0)
     @State var deleteOffset = false
@@ -30,9 +32,9 @@ struct WardrobeItemCell: View {
                             .foregroundColor(GlobalContext.cellBackground)
                             .cornerRadius(25)
                             })
-                .frame(width: 250, height: 75, alignment: .center)
-                .offset(x: offsetX, y: 0)
-                .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
+                    .frame(width: 250, height: 75, alignment: .center)
+                    .offset(x: offsetX, y: 0)
+                    .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .local)
                     .onChanged({ gesture in
                         if gesture.translation.width <= 11 {offsetX = gesture.translation.width
                             if rotationOffset >= 0 {
@@ -76,16 +78,24 @@ struct WardrobeItemCell: View {
                 .foregroundColor(.red)
                 .rotationEffect(.degrees(rotationOffset))
                 .opacity(iconOpacity)
-                .alert("delete", isPresented: $deleteConfirmation, actions: {})
                 .gesture(TapGesture().onEnded({ _ in
                     deleteConfirmation.toggle()
+                    
                 }))
+            if deleteConfirmation {ProgressView().progressViewStyle(.circular).task {
+                await viewContext.removeFromList(cellid: cellid)
+                await viewContext.updateList()
+                deleteConfirmation.toggle()
+                
+            }
+            }
+            
         }
     }
 }
 
 struct WardrobeItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        WardrobeItemCell(itemtitle: "Debug name")
+        WardrobeItemCell(itemtitle: "Debug name", cellid: UUID())
     }
 }
