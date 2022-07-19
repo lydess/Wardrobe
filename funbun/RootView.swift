@@ -35,15 +35,14 @@ struct RootView: View {
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
-        default: EmptyView()
-                                        }
+        default: Text("Broken Screen Number")
+            
+        }
             if changingviews {
                 ProgressView().progressViewStyle(.circular).task {
                    await viewContext.updateList()
                     changingviews.toggle()
                 }
-            } else {
-                Text("Broken Screen Number")
             }
                 }
             if viewContext.showsheet {
@@ -51,16 +50,16 @@ struct RootView: View {
                     .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .center)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-                    .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .global)
-                        .onEnded({ _ in
-                            if viewContext.isInDismiss {
-                            } else {
-                                viewContext.isInDismiss = true
-                                withAnimation(.spring(), {viewContext.showsheet.toggle()})
-                                viewContext.isInDismiss.toggle()
-                            }
-                })
-                )
+               //     .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .local)
+               //         .onEnded({ _ in
+               //             if viewContext.isInDismiss {
+               //             } else {
+               //                 viewContext.isInDismiss = true
+               //                 withAnimation(.spring(), {viewContext.showsheet.toggle()})
+               //                 viewContext.isInDismiss.toggle()
+               //             }
+               // })
+               // )
             }
                 }
     }

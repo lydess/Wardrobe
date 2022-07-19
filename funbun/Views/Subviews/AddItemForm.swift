@@ -25,8 +25,16 @@ struct AddItemForm: View {
                     Text("Item Name:")
                         .padding()
                     Spacer()
+                    Button(action: {viewContext.showsheet.toggle()}, label: {Image(systemName: "x.circle")
+                        .font(.system(size: 26))
+                        .offset(x: 10, y: -20)
+                    })
                 }
                 TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
+                HStack{
+                    Text("Symbol")
+                    SelectionView(rowContent: GlobalContext.symbolbuttons)
+                }
                 HStack {
                     Text("Date Added")
                         .padding()

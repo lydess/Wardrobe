@@ -30,7 +30,7 @@ class DataBase: ObservableObject {
                 }
             }
         }
-    func addnewitem() {
+    func addCell() {
         let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
         item.name = "test example"
@@ -63,7 +63,7 @@ class DataBase: ObservableObject {
         do {
             try await context.viewContext.perform {
                 let result = try fetchrequest.execute()
-                self.context.viewContext.delete(result[0])
+                if result.count == 0 {} else {self.context.viewContext.delete(result[0])}
             }
         } catch {print(error)}
         save()

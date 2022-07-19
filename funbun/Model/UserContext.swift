@@ -13,6 +13,7 @@ class GlobalContext: ObservableObject {
     static var rootbackground = Color(uiColor: UIColor(named: "BackgroundColor")!)
     static var cellBackground = Color(uiColor: UIColor(named: "CellColor")!)
     static var currentFormInput = FormInput(type: .inventoryItem)
+    static var symbolbuttons = ["tshirt", "refrigerator", "screwdriver", "cart", "dumbbell", "graduationcap.circle"]
     @Published var currentScreen = 0
     @Published var currentList = [Items]()
     @Published var showsheet = false

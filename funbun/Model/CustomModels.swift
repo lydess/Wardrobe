@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 enum FormType {
     case inventoryItem
     case newUser
@@ -19,4 +19,8 @@ struct FormInput {
     var name = ""
     var id = UUID()
     var date = Date()
+}
+
+struct Symbolcollection {
+    var symbols = ["tshirt", "refrigerator", "screwdriver", "cart", "dumbbell", "graduationcap.circle"]
 }
