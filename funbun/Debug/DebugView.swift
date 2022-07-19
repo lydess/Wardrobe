@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DebugView: View {
     @State var Sheetdisplay = false
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var ViewContext = globalcontext
     @State var DeleteItemIndicator = false
     var body: some View {
         VStack {
@@ -21,12 +21,12 @@ struct DebugView: View {
                     
                 }
                 if DeleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                    await DataHandler.removetopitem()
-                    await ViewContext.UpdateList()
+                    await dataHandler.removetopitem()
+                    await ViewContext.updateList()
                     DeleteItemIndicator.toggle()
                 }}
-            }.frame(width: ScreenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
-            Button("get user defaults"){print(userdefaults.string(forKey: "name_preference  "))}
+            }.frame(width: screenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
+            Button("get user defaults"){print(userdefaults.string(forKey: "name_preference"))}
             
             Spacer()
             

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var ViewContext = Globalcontext
+    @StateObject var viewContext = globalcontext
     @State var doshowactivity = false
 
     var body: some View {

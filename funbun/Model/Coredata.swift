@@ -8,12 +8,10 @@
 import Foundation
 import CoreData
 
-class Database:ObservableObject {
-    
+class DataBase: ObservableObject {
      var context: NSPersistentContainer = {
-           
             let container = NSPersistentContainer(name: "WDB")
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            container.loadPersistentStores(completionHandler: { (_, error) in
                 if let error = error as NSError? {
 
                     fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -22,7 +20,7 @@ class Database:ObservableObject {
             return container
         }()
     
-    func Save () {
+    func save () {
             let context = context.viewContext
             if context.hasChanges {
                 do {
@@ -34,42 +32,35 @@ class Database:ObservableObject {
             }
         }
     func addnewitem() {
-        let item = Items(context: DataHandler.context.viewContext)
+        let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
         item.name = "test example"
-        
-        Save()
+        save()
     }
     
-    func AddForm(form: FormInput) {
-        let item = Items(context: DataHandler.context.viewContext)
+    func addForm(form: FormInput) {
+        let item = Items(context: dataHandler.context.viewContext)
         item.id = UUID()
-        item.name = form.Name
+        item.name = form.name
         item.date = form.date
         
-        Save()
+        save()
     }
-    
     func removetopitem() async {
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
         fetchrequest.returnsObjectsAsFaults = false
-   
-        do{
+        do {
             try await context.viewContext.perform {
             let result = try fetchrequest.execute()
                 if result.count == 0 {} else {self.context.viewContext.delete(result[0])}
-                
-                
-            
-            
         }
-        }catch {
+        } catch {
             print("failure")
         }
-        Save()
+        save()
     }
     
-    func GetDBItems() async -> [Items]{
+    func getDBItems() async -> [Items]{
         var final = [Items]()
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
         fetchrequest.returnsObjectsAsFaults = false

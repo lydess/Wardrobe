@@ -9,17 +9,17 @@ import SwiftUI
 
 struct AddItemForm: View {
    
-    
-    @State var NameTextField = ""
-    @State var Datechosen = Date()
+
+    @State var nameTextField = ""
+    @State var datechosen = Date()
     @State var indicator = false
-    @StateObject var ViewContext = Globalcontext
-    
+    @StateObject var viewContext = globalcontext
+
     var body: some View {
         ZStack {
             VStack {
                 Rectangle()
-                    .frame(width: ScreenWidth-100, height: ScreenHeight - 150, alignment: .center)
+                    .frame(width: screenWidth-100, height: screenHeight - 150, alignment: .center)
                 .foregroundColor(GlobalContext.CellBackground)
                 
             }
@@ -30,19 +30,19 @@ struct AddItemForm: View {
                         .padding()
                     Spacer()
                 }
-                TextField("", text: $NameTextField).textFieldStyle(.roundedBorder)
+                TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
                 HStack {
                     Text("Date Added")
                         .padding()
                     Spacer()
                 }
-                DatePicker(selection: $Datechosen, label: {})
+                DatePicker(selection: $datechosen, label: {})
                 Button("Submit"){
-                        var UserFormInput = FormInput(type: .InventoryItem)
-                            UserFormInput.Name = NameTextField
-                            UserFormInput.date = Datechosen
-                            UserFormInput.id = UUID()
-                            DataHandler.AddForm(form: UserFormInput)
+                        var userFormInput = FormInput(type: .inventoryItem)
+                            userFormInput.name = nameTextField
+                            userFormInput.date = datechosen
+                            userFormInput.id = UUID()
+                            dataHandler.addForm(form: userFormInput)
                             
                             indicator.toggle()
                             
@@ -53,9 +53,9 @@ struct AddItemForm: View {
                     
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
-                            await DataHandler.GetDBItems()
-                            await ViewContext.UpdateList()
-                            withAnimation(.easeInOut){ViewContext.showsheet.toggle()}
+                            await dataHandler.getDBItems()
+                            await viewContext.updateList()
+                            withAnimation(.easeInOut){viewContext.showsheet.toggle()}
                             indicator.toggle()
                             
                         }

@@ -12,23 +12,15 @@ import SwiftUI
 class GlobalContext: ObservableObject {
     static var rootbackground = Color(uiColor: UIColor(named: "BackgroundColor")!)
     static var CellBackground = Color(uiColor: UIColor(named: "CellColor")!)
-    static var CurrentFormInput = FormInput(type: .InventoryItem)
-    @Published var CurrentScreen = 0
-    @Published var CurrentItemList = [Items]()
+    static var CurrentFormInput = FormInput(type: .inventoryItem)
+    @Published var currentScreen = 0
+    @Published var currentList = [Items]()
     @Published var showsheet = false
-    @Published var IsInDissmiss = false
-    
+    @Published var isInDismiss = false
     
     // Updates the ViewModel With the current list in the database
     // Use this method in UI element actions that alter the DB in a way that needs to be reflected to the user context
-    func UpdateList() async {
-        CurrentItemList = await DataHandler.GetDBItems()
+    func updateList() async {
+        currentList = await dataHandler.getDBItems()
     }
-    
-    
-    
-    
-    
 }
-
-
