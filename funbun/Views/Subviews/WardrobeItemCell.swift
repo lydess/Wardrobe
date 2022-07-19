@@ -15,7 +15,7 @@ struct WardrobeItemCell: View {
     @State var OffsetX = CGFloat(0)
     @State var DeleteOffset = false
     @State var RotationOffset = 90.0
-    @State var IconOpacity = 1.0
+    @State var IconOpacity = 0.0
  
     
     
@@ -39,48 +39,50 @@ struct WardrobeItemCell: View {
                     .onChanged({ gesture in
                         if gesture.translation.width <= 11 {OffsetX = gesture.translation.width
                             if RotationOffset >= 0 {
-                                withAnimation(.spring()) {
-                                    RotationOffset = gesture.translation.width / 2
-                                   
-                                }
-                            
-                                
-                                
                             }
                         }
-                        
-                        if DeleteOffset {OffsetX = -100
-                            DeleteOffset = false
-                            RotationOffset = -90
+                    
+                        if DeleteOffset {
+                            OffsetX = -100
+                            withAnimation(.easeInOut){RotationOffset = 0}
                         }
-                        print(OffsetX)
-                       
-                        
-                        
-
-                                }
+                            }
                               )
                         .onEnded({finished in
                             
                             if OffsetX < -100 {
+                                withAnimation(.easeInOut){RotationOffset = 0
+            
+                                }
+                                
                                 withAnimation(.spring()) {
-                                    OffsetX = -100}
-                                //RotationOffset = 90
-                                Deleteicon.toggle()
-                                DeleteOffset.toggle()
+                                OffsetX = -100
+                                Deleteicon = true
+                                DeleteOffset = true
+                                }
+                                withAnimation(.easeOut) {
+                                    IconOpacity = 1
+                                }
+                                
                                 
                                 
                             } else {
                             withAnimation(.spring()) {
-                                OffsetX = 0}
+                                OffsetX = 0
+                                Deleteicon = false
+                                DeleteOffset = false
+                            }
+                                withAnimation(.easeOut) {
+                                    IconOpacity = 0
+                                    RotationOffset = 90
+                            }
+                                
+                                
                             }
                             
-                            if DeleteOffset == false {
-                                withAnimation(.spring()) {
-                                    RotationOffset = 0
-                                   
-                                }
-                            }
+                            
+                            
+                            
                             
                         })
             )
