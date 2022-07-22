@@ -80,16 +80,13 @@ struct WardrobeItemCell: View {
                 .opacity(iconOpacity)
                 .gesture(TapGesture().onEnded({ _ in
                     deleteConfirmation.toggle()
-                    
                 }))
             if deleteConfirmation {ProgressView().progressViewStyle(.circular).task {
                 await viewContext.removeFromList(cellid: cellid)
                 await viewContext.updateList()
                 deleteConfirmation.toggle()
-                
             }
             }
-            
         }
     }
 }

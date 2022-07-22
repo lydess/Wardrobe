@@ -21,6 +21,7 @@ struct FormInput {
     var date = Date()
 }
 
-struct Symbolcollection {
-    var symbols = ["tshirt", "refrigerator", "screwdriver", "cart", "dumbbell", "graduationcap.circle"]
+struct SelectionSymbol {
+    var name: String
+    var id = UUID()
 }

@@ -12,6 +12,7 @@ var globalcontext = GlobalContext()
 var dataHandler = DataBase()
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
+
 struct RootView: View {
     @StateObject var viewContext = globalcontext
     @State var changingviews = false
@@ -36,7 +37,6 @@ struct RootView: View {
         case 10:
             AddItemForm()
         default: Text("Broken Screen Number")
-            
         }
             if changingviews {
                 ProgressView().progressViewStyle(.circular).task {

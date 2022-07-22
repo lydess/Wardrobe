@@ -11,6 +11,7 @@ struct AddItemForm: View {
     @State var nameTextField = ""
     @State var datechosen = Date()
     @State var indicator = false
+    @State var emojifield = ""
     @StateObject var viewContext = globalcontext
 
     var body: some View {
@@ -31,7 +32,7 @@ struct AddItemForm: View {
                     })
                 }
                 TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
-                HStack{
+                HStack {
                     Text("Symbol")
                     SelectionView(rowContent: GlobalContext.symbolbuttons)
                 }

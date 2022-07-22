@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+let API = Networking()
 
 struct DebugView: View {
     @State var sheetdisplay = false
     @StateObject var viewContext = globalcontext
     @State var deleteItemIndicator = false
+    @State var isCallingAPI = false
     var body: some View {
         VStack {
             Text("Debug view").font(.largeTitle).bold()
@@ -27,6 +29,12 @@ struct DebugView: View {
             }.frame(width: screenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
             Button("get user defaults") {print(userdefaults.string(forKey: "name_preference"))}
             SelectionView(rowContent: GlobalContext.symbolbuttons).background(.red)
+            Button("API"){isCallingAPI.toggle()}
+            if isCallingAPI {
+                ProgressView().progressViewStyle(.circular).task {
+                    await API.exampleGet()
+                    isCallingAPI.toggle()
+                }}
             Spacer()
         }
     }
