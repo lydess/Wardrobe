@@ -15,6 +15,8 @@ class GlobalContext: ObservableObject {
     static var cellBackground = Color(uiColor: UIColor(named: "CellColor")!)
     static var currentFormInput = FormInput(type: .inventoryItem)
     static var symbolbuttons = Longvars.selectionset
+    
+    static let shared = GlobalContext()
     @Published var currentScreen = 0
     @Published var currentList = [Items]()
     @Published var showsheet = false

@@ -35,7 +35,7 @@ struct RootView: View {
             DebugView()
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
-            AddItemForm()
+            CameraView()
         default: Text("Broken Screen Number")
         }
             if changingviews {
