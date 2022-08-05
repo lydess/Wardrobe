@@ -12,11 +12,10 @@ import CoreImage
 import AVFoundation
 
 class ContentViewModel: ObservableObject {
-  
-  @Published var frame: CGImage?
+    @Published var frame: CGImage?
     @Published var error: Error?
-  private let cameraManager = CameraHandler.shared
-  private let frameManager = FrameManager.shared
+    private let cameraManager = CameraHandler.shared
+    private let frameManager = FrameManager.shared
     
     
 
@@ -31,15 +30,12 @@ class ContentViewModel: ObservableObject {
           return CGImage.create(from: buffer)
         }
         .assign(to: &$frame)
-        
-
   }
-    
     func positionswap() {
         cameraManager.cameraswap()
     }
     func captureimage() -> Any {
-        var image = frameManager.$current
+        var _ = frameManager.$current
             .compactMap { buffer in
               return CGImage.create(from: buffer)
             }

@@ -41,6 +41,7 @@ class DataBase: ObservableObject {
         item.id = UUID()
         item.name = form.name
         item.date = form.date
+        item.photo = form.photo
         save()
     }
     func removetopitem() async {

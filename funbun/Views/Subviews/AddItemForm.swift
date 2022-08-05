@@ -42,11 +42,17 @@ struct AddItemForm: View {
                     Spacer()
                 }
                 DatePicker(selection: $datechosen, label: {})
+                HStack{
+                    Spacer()
+                    Button(action: {viewContext.currentScreen = 10}, label: {Image(systemName: "camera")})
+                    
+                }
                 Button("Submit") {
                         var userFormInput = FormInput(type: .inventoryItem)
                             userFormInput.name = nameTextField
                             userFormInput.date = datechosen
                             userFormInput.id = UUID()
+                            userFormInput.photo = UIImage(cgImage:GlobalContext.shared.currentImage!).pngData()!
                             dataHandler.addForm(form: userFormInput)
                             indicator.toggle()
                 }

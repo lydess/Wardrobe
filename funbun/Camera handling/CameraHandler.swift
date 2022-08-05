@@ -116,6 +116,7 @@ class CameraHandler: ObservableObject{
                 // 3
                 let videoConnection = videoOutput.connection(with: .video)
                 videoConnection?.videoOrientation = .portrait
+                videoConnection?.videoPreviewLayer?.isGeometryFlipped = true
             } else {
                 // 4
                 set(error: .sessionNotRunning)
