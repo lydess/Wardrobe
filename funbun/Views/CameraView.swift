@@ -12,17 +12,39 @@ struct CameraView: View {
     var image: CGImage?
     let label = Text("Camera feed")
     var body: some View {
+        if GlobalContext.shared.currentImage == nil{
         ZStack {
             FrameView(image: model.frame)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Button("Flip"){
-                    model.positionswap()
+                HStack {
+                    Button("Flip") {
+                        model.positionswap()
+                    }
+                    Button("Capture") {
+                        GlobalContext.shared.getcapturedimage(image: model.frame!)
+                    }
+                    
+                    Button("debug") {
+                        
+                        }
+                    }
                 }
             }
+        }else{
+            ZStack{
+                Image(uiImage: UIImage(cgImage: GlobalContext.shared.currentImage!)).resizable().frame(width: screenWidth, height: screenHeight, alignment: .center)
+                    
+                Button("save"){
+                    GlobalContext.shared.savecapturedimage()
+                }
+                    
+            }
         }
+        
     }
-}
+    }
+
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {

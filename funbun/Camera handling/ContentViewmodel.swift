@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 import CoreImage
+import AVFoundation
 
 class ContentViewModel: ObservableObject {
   
@@ -36,5 +37,12 @@ class ContentViewModel: ObservableObject {
     
     func positionswap() {
         cameraManager.cameraswap()
+    }
+    func captureimage() -> Any {
+        var image = frameManager.$current
+            .compactMap { buffer in
+              return CGImage.create(from: buffer)
+            }
+        return AVError.sessionWasInterrupted
     }
 }
