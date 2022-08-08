@@ -79,7 +79,7 @@ struct AddItemForm: View {
                             indicator.toggle()
                         }
                     }
-                Spacer()
+                
             }.padding()
         }
     }
