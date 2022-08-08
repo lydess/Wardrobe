@@ -58,7 +58,7 @@ class DataBase: ObservableObject {
         }
         save()
     }
-    func removeCell(cellid: UUID) async {
+    func deleteWithCellID(cellid: UUID) async {
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
         let pred = NSPredicate(format: "id == %@", cellid as CVarArg)
         fetchrequest.predicate = pred
@@ -70,6 +70,23 @@ class DataBase: ObservableObject {
         } catch {print(error)}
         save()
     }
+    func deleteWithTitle(title: String) async {
+        var fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
+        fetchrequest.returnsObjectsAsFaults = false
+
+        let pred = NSPredicate(format: "name == %@", title as CVarArg)
+        fetchrequest.predicate = pred
+        do {
+            let results = try self.context.viewContext.fetch(fetchrequest) as [NSManagedObject]
+            
+            
+            self.context.viewContext.delete(results[0])
+            
+  
+        } catch {print(error)}
+        save()
+    }
+    
     func getDBItems() async -> [Items] {
         var final = [Items]()
         let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()

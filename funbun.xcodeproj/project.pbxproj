@@ -14,7 +14,6 @@
 		CF286F60289CE7550060743A /* CameraFrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F5F289CE7550060743A /* CameraFrameManager.swift */; };
 		CF286F63289CEA110060743A /* ContentViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F62289CEA110060743A /* ContentViewmodel.swift */; };
 		CF286F65289CEC970060743A /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F64289CEC970060743A /* CGImageExtension.swift */; };
-		CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */; };
 		CF7B6A6B2882388800B78049 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF7B6A6A2882388800B78049 /* Settings.bundle */; };
 		CF9795DF28867B7F00B9FD0C /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9795DE28867B7F00B9FD0C /* SelectionView.swift */; };
 		CF9795E128868EF300B9FD0C /* Debug class.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9795E028868EF300B9FD0C /* Debug class.swift */; };
@@ -23,6 +22,27 @@
 		CFB80B94287FF62B007F02FC /* CustomModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B93287FF62B007F02FC /* CustomModels.swift */; };
 		CFB80B9628802EE3007F02FC /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B9528802EE3007F02FC /* DebugView.swift */; };
 		CFBEA52428A10F9500C054FF /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBEA52328A10F9500C054FF /* ItemDetailView.swift */; };
+		CFBEA52528A13E9400C054FF /* CustomModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B93287FF62B007F02FC /* CustomModels.swift */; };
+		CFBEA52628A13E9500C054FF /* CustomModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B93287FF62B007F02FC /* CustomModels.swift */; };
+		CFBEA52728A13F0C00C054FF /* Long Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9795E228868FD700B9FD0C /* Long Vars.swift */; };
+		CFBEA52D28A13F1E00C054FF /* WardrobeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8079287E7C4A00AAD098 /* WardrobeItemCell.swift */; };
+		CFBEA52E28A13F1E00C054FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F56289CD8030060743A /* CameraView.swift */; };
+		CFBEA52F28A13F1E00C054FF /* DB scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF007C0E287ECD860065778F /* DB scrollview.swift */; };
+		CFBEA53028A13F1E00C054FF /* DataBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF805F287D211400AAD098 /* DataBaseView.swift */; };
+		CFBEA53128A13F1E00C054FF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802D287D1ED600AAD098 /* RootView.swift */; };
+		CFBEA53228A13F1E00C054FF /* funbunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802B287D1ED600AAD098 /* funbunApp.swift */; };
+		CFBEA53328A13F1E00C054FF /* AddItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8E686287ED36C00C1C3ED /* AddItemForm.swift */; };
+		CFBEA53428A13F1E00C054FF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8056287D1FB200AAD098 /* HomeView.swift */; };
+		CFBEA53528A13F1E00C054FF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8062287D21C500AAD098 /* NavBar.swift */; };
+		CFBEA53628A13F1E00C054FF /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBEA52328A10F9500C054FF /* ItemDetailView.swift */; };
+		CFBEA53728A13F1E00C054FF /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9795DE28867B7F00B9FD0C /* SelectionView.swift */; };
+		CFBEA53828A13F2B00C054FF /* ContentViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F62289CEA110060743A /* ContentViewmodel.swift */; };
+		CFBEA53928A13F2B00C054FF /* CameraFrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F5F289CE7550060743A /* CameraFrameManager.swift */; };
+		CFBEA53A28A13F2B00C054FF /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F64289CEC970060743A /* CGImageExtension.swift */; };
+		CFBEA53B28A13F2B00C054FF /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F5C289CDC9D0060743A /* FrameView.swift */; };
+		CFBEA53C28A13F2B00C054FF /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF286F58289CD8120060743A /* CameraHandler.swift */; };
+		CFBEA53D28A13F3B00C054FF /* Debug class.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9795E028868EF300B9FD0C /* Debug class.swift */; };
+		CFBEA53E28A13F3B00C054FF /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB80B9528802EE3007F02FC /* DebugView.swift */; };
 		CFFF802C287D1ED600AAD098 /* funbunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802B287D1ED600AAD098 /* funbunApp.swift */; };
 		CFFF802E287D1ED600AAD098 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802D287D1ED600AAD098 /* RootView.swift */; };
 		CFFF8030287D1ED700AAD098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFF802F287D1ED700AAD098 /* Assets.xcassets */; };
@@ -38,11 +58,6 @@
 		CFFF8063287D21C500AAD098 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8062287D21C500AAD098 /* NavBar.swift */; };
 		CFFF8066287D8FE800AAD098 /* WDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8064287D8FE800AAD098 /* WDB.xcdatamodeld */; };
 		CFFF8069287E771200AAD098 /* WDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8064287D8FE800AAD098 /* WDB.xcdatamodeld */; };
-		CFFF806F287E774400AAD098 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8062287D21C500AAD098 /* NavBar.swift */; };
-		CFFF8070287E774400AAD098 /* funbunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802B287D1ED600AAD098 /* funbunApp.swift */; };
-		CFFF8071287E774400AAD098 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8056287D1FB200AAD098 /* HomeView.swift */; };
-		CFFF8072287E774400AAD098 /* DataBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF805F287D211400AAD098 /* DataBaseView.swift */; };
-		CFFF8073287E774400AAD098 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF802D287D1ED600AAD098 /* RootView.swift */; };
 		CFFF8076287E774800AAD098 /* UserContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF805D287D203B00AAD098 /* UserContext.swift */; };
 		CFFF8077287E774800AAD098 /* Coredata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF805B287D202200AAD098 /* Coredata.swift */; };
 		CFFF8078287E774800AAD098 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFF8059287D201000AAD098 /* Networking.swift */; };
@@ -431,17 +446,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBEA53328A13F1E00C054FF /* AddItemForm.swift in Sources */,
+				CFBEA53E28A13F3B00C054FF /* DebugView.swift in Sources */,
+				CFBEA53528A13F1E00C054FF /* NavBar.swift in Sources */,
 				CFFF8076287E774800AAD098 /* UserContext.swift in Sources */,
-				CF6C777F287E80BB00B1AD07 /* WardrobeItemCell.swift in Sources */,
 				CFFF8078287E774800AAD098 /* Networking.swift in Sources */,
-				CFFF8073287E774400AAD098 /* RootView.swift in Sources */,
+				CFBEA53428A13F1E00C054FF /* HomeView.swift in Sources */,
+				CFBEA53728A13F1E00C054FF /* SelectionView.swift in Sources */,
+				CFBEA53228A13F1E00C054FF /* funbunApp.swift in Sources */,
 				CFFF8069287E771200AAD098 /* WDB.xcdatamodeld in Sources */,
-				CFFF806F287E774400AAD098 /* NavBar.swift in Sources */,
-				CFFF8071287E774400AAD098 /* HomeView.swift in Sources */,
-				CFFF8070287E774400AAD098 /* funbunApp.swift in Sources */,
-				CFFF8072287E774400AAD098 /* DataBaseView.swift in Sources */,
+				CFBEA53B28A13F2B00C054FF /* FrameView.swift in Sources */,
+				CFBEA53C28A13F2B00C054FF /* CameraHandler.swift in Sources */,
+				CFBEA52E28A13F1E00C054FF /* CameraView.swift in Sources */,
+				CFBEA53628A13F1E00C054FF /* ItemDetailView.swift in Sources */,
+				CFBEA52728A13F0C00C054FF /* Long Vars.swift in Sources */,
+				CFBEA52528A13E9400C054FF /* CustomModels.swift in Sources */,
 				CFFF803D287D1ED700AAD098 /* funbunTests.swift in Sources */,
+				CFBEA52D28A13F1E00C054FF /* WardrobeItemCell.swift in Sources */,
+				CFBEA53928A13F2B00C054FF /* CameraFrameManager.swift in Sources */,
+				CFBEA53D28A13F3B00C054FF /* Debug class.swift in Sources */,
+				CFBEA53128A13F1E00C054FF /* RootView.swift in Sources */,
+				CFBEA53A28A13F2B00C054FF /* CGImageExtension.swift in Sources */,
+				CFBEA53828A13F2B00C054FF /* ContentViewmodel.swift in Sources */,
+				CFBEA52F28A13F1E00C054FF /* DB scrollview.swift in Sources */,
 				CFFF8077287E774800AAD098 /* Coredata.swift in Sources */,
+				CFBEA53028A13F1E00C054FF /* DataBaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +480,7 @@
 			files = (
 				CFFF8049287D1ED700AAD098 /* funbunUITestsLaunchTests.swift in Sources */,
 				CFFF8047287D1ED700AAD098 /* funbunUITests.swift in Sources */,
+				CFBEA52628A13E9500C054FF /* CustomModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

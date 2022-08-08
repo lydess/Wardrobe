@@ -33,20 +33,22 @@ struct AddItemForm: View {
                     })
                 }
                 TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
-                HStack {
-                    Text("Symbol")
-                    SelectionView(rowContent: GlobalContext.symbolbuttons)
-                }
-                HStack {
-                    Text("Notes")
-                        .padding()
-                    Spacer()
-                }
                 
-                HStack {
-                    TextField("", text: $descriptionTextfield).textFieldStyle(.roundedBorder)
-                        .padding()
-                    Spacer()
+                VStack {
+                    Text("Symbol:")
+                    HStack {
+                        SelectionView(rowContent: GlobalContext.symbolbuttons)
+                    }.border(.mint)
+                }.padding()
+                
+                
+                VStack {
+                    Text("Notes")
+                    HStack {
+                        TextField("", text: $descriptionTextfield).textFieldStyle(.roundedBorder)
+                            .padding()
+                        Spacer()
+                    }
                 }
                 HStack {
                     Text("Date Added")
@@ -71,6 +73,7 @@ struct AddItemForm: View {
                 }
                 .padding(.top, 50)
                 .buttonStyle(.borderedProminent)
+                
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
                             await dataHandler.getDBItems()
@@ -81,6 +84,7 @@ struct AddItemForm: View {
                     }
                 
             }.padding()
+                .offset(x: 0, y: -50)
         }
     }
 }

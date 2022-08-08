@@ -30,7 +30,7 @@ class GlobalContext: ObservableObject {
         currentList = await dataHandler.getDBItems()
     }
     func removeFromList(cellid: UUID) async {
-        await dataHandler.removeCell(cellid: cellid)
+        await dataHandler.deleteWithCellID(cellid: cellid)
     }
     func getcapturedimage(image:CGImage){
         self.currentImage = image

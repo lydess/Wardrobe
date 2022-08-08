@@ -22,6 +22,13 @@ class FunbunTests: XCTestCase {
         let itemcount = await dataHandler.getDBItems().capacity
         XCTAssert(itemcount > 0)
     }
+    
+    func testdb() async throws {
+        let testform = FormInput(type: .inventoryItem, name: "Testbag", id: UUID(), date: Date(timeIntervalSinceNow: 1), desc: "Test desc", photo: Data())
+        let testinput = dataHandler.addForm(form: FormInput(type: .inventoryItem, name: "Testbag", id: UUID(), date: Date(timeIntervalSinceNow: 1), desc: "Test desc", photo: Data()))
+        await dataHandler.deleteWithTitle(title: "Testbag")
+        
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
