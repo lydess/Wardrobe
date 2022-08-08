@@ -78,8 +78,6 @@ class DataBase: ObservableObject {
         fetchrequest.predicate = pred
         do {
             let results = try self.context.viewContext.fetch(fetchrequest) as [NSManagedObject]
-            
-            
             self.context.viewContext.delete(results[0])
             
   
