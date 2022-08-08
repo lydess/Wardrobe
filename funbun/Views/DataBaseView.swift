@@ -14,6 +14,7 @@ struct DataBaseView: View {
     @State var offsetX = CGFloat(0)
     @State var showAddItem = false
     var body: some View {
+        
         VStack {
             HStack {
                 Spacer()
@@ -36,6 +37,8 @@ struct DataBaseView: View {
                 deleteItemIndicator.toggle()
             }}
         }
+        
+        
     }
 }
 

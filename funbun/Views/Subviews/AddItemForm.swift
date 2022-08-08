@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddItemForm: View {
     @State var nameTextField = ""
+    @State var descriptionTextfield = ""
     @State var datechosen = Date()
     @State var indicator = false
     @StateObject var viewContext = globalcontext
@@ -36,6 +37,17 @@ struct AddItemForm: View {
                     SelectionView(rowContent: GlobalContext.symbolbuttons)
                 }
                 HStack {
+                    Text("Notes")
+                        .padding()
+                    Spacer()
+                }
+                
+                HStack {
+                    TextField("", text: $descriptionTextfield).textFieldStyle(.roundedBorder)
+                        .padding()
+                    Spacer()
+                }
+                HStack {
                     Text("Date Added")
                         .padding()
                     Spacer()
@@ -46,6 +58,7 @@ struct AddItemForm: View {
                             userFormInput.name = nameTextField
                             userFormInput.date = datechosen
                             userFormInput.id = UUID()
+                            userFormInput.desc = descriptionTextfield
                             dataHandler.addForm(form: userFormInput)
                             indicator.toggle()
                 }

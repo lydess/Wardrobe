@@ -19,6 +19,7 @@ struct FormInput {
     var name = ""
     var id = UUID()
     var date = Date()
+    var desc = ""
 }
 
 struct Symbolcollection {

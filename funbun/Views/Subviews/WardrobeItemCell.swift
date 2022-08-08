@@ -10,6 +10,7 @@ import SwiftUI
 struct WardrobeItemCell: View {
     var itemtitle: String
     var cellid: UUID
+    var itemdesc: String
     var itemimage = Image(systemName: "tshirt")
     @StateObject var viewContext = globalcontext
     @State var deleteicon = false
@@ -96,6 +97,6 @@ struct WardrobeItemCell: View {
 
 struct WardrobeItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        WardrobeItemCell(itemtitle: "Debug name", cellid: UUID())
+        WardrobeItemCell(itemtitle: "Debug name", cellid: UUID(), itemdesc: "debug desc")
     }
 }

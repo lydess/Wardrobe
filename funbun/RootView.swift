@@ -35,6 +35,8 @@ struct RootView: View {
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()
+        case 15:
+            ItemDetailView()
         default: Text("Broken Screen Number")
             
         }
