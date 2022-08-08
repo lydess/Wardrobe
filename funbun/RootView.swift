@@ -16,6 +16,7 @@ let screenHeight = UIScreen.main.bounds.height
 struct RootView: View {
     @StateObject var viewContext = globalcontext
     @State var changingviews = false
+    @State var cameraisshown = false
     var body: some View {
         ZStack {
         VStack {
@@ -45,21 +46,11 @@ struct RootView: View {
                 }
             }
                 }
-            if viewContext.showsheet {
+            if viewContext.showsheet && cameraisshown == false {
                 AddItemForm()
                     .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .center)
                     .cornerRadius(15)
                     .foregroundColor(.black)
-               //     .gesture(DragGesture(minimumDistance: 2, coordinateSpace: .local)
-               //         .onEnded({ _ in
-               //             if viewContext.isInDismiss {
-               //             } else {
-               //                 viewContext.isInDismiss = true
-               //                 withAnimation(.spring(), {viewContext.showsheet.toggle()})
-               //                 viewContext.isInDismiss.toggle()
-               //             }
-               // })
-               // )
             }
                 }
     }
