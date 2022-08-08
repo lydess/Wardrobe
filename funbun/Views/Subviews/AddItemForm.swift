@@ -12,6 +12,7 @@ struct AddItemForm: View {
     @State var descriptionTextfield = ""
     @State var datechosen = Date()
     @State var indicator = false
+    @State var emojifield = ""
     @StateObject var viewContext = globalcontext
 
     var body: some View {
@@ -32,7 +33,7 @@ struct AddItemForm: View {
                     })
                 }
                 TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
-                HStack{
+                HStack {
                     Text("Symbol")
                     SelectionView(rowContent: GlobalContext.symbolbuttons)
                 }
@@ -53,12 +54,18 @@ struct AddItemForm: View {
                     Spacer()
                 }
                 DatePicker(selection: $datechosen, label: {})
+                HStack{
+                    Spacer()
+                    Button(action: {viewContext.currentScreen = 10}, label: {Image(systemName: "camera")})
+                    
+                }
                 Button("Submit") {
                         var userFormInput = FormInput(type: .inventoryItem)
                             userFormInput.name = nameTextField
                             userFormInput.date = datechosen
                             userFormInput.id = UUID()
                             userFormInput.desc = descriptionTextfield
+                            userFormInput.photo = UIImage(cgImage:GlobalContext.shared.currentImage!).pngData()!
                             dataHandler.addForm(form: userFormInput)
                             indicator.toggle()
                 }

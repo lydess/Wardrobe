@@ -42,6 +42,7 @@ class DataBase: ObservableObject {
         item.name = form.name
         item.date = form.date
         item.itemdesc = form.desc
+        item.photo = form.photo
         save()
     }
     func removetopitem() async {

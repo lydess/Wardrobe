@@ -20,8 +20,10 @@ struct FormInput {
     var id = UUID()
     var date = Date()
     var desc = ""
+    var photo = Data()
 }
 
-struct Symbolcollection {
-    var symbols = ["tshirt", "refrigerator", "screwdriver", "cart", "dumbbell", "graduationcap.circle"]
+struct SelectionSymbol {
+    var name: String
+    var id = UUID()
 }

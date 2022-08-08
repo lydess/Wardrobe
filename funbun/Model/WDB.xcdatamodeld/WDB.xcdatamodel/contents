@@ -5,6 +5,7 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="itemdesc" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
     </entity>
     <elements>
