@@ -18,11 +18,6 @@ struct AddItemForm: View {
     var body: some View {
         ZStack {
             VStack {
-                Rectangle()
-                    .frame(width: screenWidth-100, height: screenHeight - 150, alignment: .center)
-                .foregroundColor(GlobalContext.cellBackground)
-            }
-            VStack {
                 HStack {
                     Text("Item Name:")
                         .padding()
@@ -54,10 +49,13 @@ struct AddItemForm: View {
                     Spacer()
                 }
                 DatePicker(selection: $datechosen, label: {})
-                HStack{
+                HStack {
                     Spacer()
-                    Button(action: {viewContext.currentScreen = 10}, label: {Image(systemName: "camera")})
-                    
+                    Button(action: {
+                        viewContext.currentScreen = 11
+                        viewContext.cameraisshown.toggle()
+                        
+                    }, label: {Image(systemName: "camera")})
                 }
                 Button("Submit") {
                         var userFormInput = FormInput(type: .inventoryItem)
@@ -65,7 +63,7 @@ struct AddItemForm: View {
                             userFormInput.date = datechosen
                             userFormInput.id = UUID()
                             userFormInput.desc = descriptionTextfield
-                            userFormInput.photo = UIImage(cgImage:GlobalContext.shared.currentImage!).pngData()!
+                            userFormInput.photo = UIImage(cgImage: GlobalContext.shared.currentImage!).pngData()!
                             dataHandler.addForm(form: userFormInput)
                             indicator.toggle()
                 }
@@ -73,15 +71,28 @@ struct AddItemForm: View {
                 .buttonStyle(.borderedProminent)
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
-                            await dataHandler.getDBItems()
+                            _ = await dataHandler.getDBItems()
                             await viewContext.updateList()
                             withAnimation(.easeInOut) {viewContext.showsheet.toggle()}
                             indicator.toggle()
                         }
                     }
-                
             }.padding()
-        }
+                .background(content: {Rectangle()
+                        .foregroundColor(GlobalContext.cellBackground).cornerRadius(20)
+                })
+        }.onAppear(perform: {
+            descriptionTextfield = viewContext.currentFormInput.desc
+            nameTextField = viewContext.currentFormInput.name
+            datechosen = viewContext.currentFormInput.date
+            
+        })
+        .onDisappear(perform: {
+            viewContext.currentFormInput.id = UUID()
+            viewContext.currentFormInput.desc = descriptionTextfield
+            viewContext.currentFormInput.name = nameTextField
+            viewContext.currentFormInput.date = datechosen
+        })
     }
 }
 

@@ -16,27 +16,29 @@ let screenHeight = UIScreen.main.bounds.height
 struct RootView: View {
     @StateObject var viewContext = globalcontext
     @State var changingviews = false
-    @State var cameraisshown = false
+    
     var body: some View {
         ZStack {
         VStack {
         Spacer()
-        NavBar()
+            NavBar()
         }
         VStack {
         switch viewContext.currentScreen {
         case 0:
             HomeView()
-                .blur(radius: viewContext.showsheet ? 5 : 0)
+                
         case 1:
             DataBaseView()
                 .onAppear(perform: {changingviews.toggle()})
-                .blur(radius: viewContext.showsheet ? 5 : 0)
+                
         case 2:
             DebugView()
-                .blur(radius: viewContext.showsheet ? 5 : 0)
+                
         case 10:
             AddItemForm()
+        case 11:
+            CameraView()
         case 15:
             ItemDetailView()
         default: Text("Broken Screen Number")
@@ -48,14 +50,16 @@ struct RootView: View {
                 }
             }
                 }
-            if viewContext.showsheet && cameraisshown == false {
+            if viewContext.showsheet && viewContext.cameraisshown == false {
                 AddItemForm()
-                    .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .center)
+                    .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .top)
                     .cornerRadius(15)
                     .foregroundColor(.black)
+                    
             }
                 }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
