@@ -15,15 +15,16 @@ class GlobalContext: ObservableObject {
     let longvars = Longvars()
     static var rootbackground = Color(uiColor: UIColor(named: "BackgroundColor")!)
     static var cellBackground = Color(uiColor: UIColor(named: "CellColor")!)
-    static var currentFormInput = FormInput(type: .inventoryItem)
     static var symbolbuttons = Longvars.selectionset
     static let shared = GlobalContext()
+    @Published var currentFormInput = FormInput(type: .inventoryItem, name: "", id: UUID(), date: Date(timeIntervalSinceNow: 1), desc: "", photo: Data())
     @Published var currentScreen = 0
     @Published var currentList = [Items]()
     @Published var showsheet = false
     @Published var isInDismiss = false    
     @Published var loadedItem = WardrobeItemCell(itemtitle: "Debug", cellid: UUID(),itemdesc: "debug desc")
     @Published var currentImage: CGImage?
+    @Published var cameraisshown = false
     // Updates the ViewModel With the current list in the database
     // Use this method in UI element actions that alter the DB in a way that needs to be reflected to the user context
     func updateList() async {

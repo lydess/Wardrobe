@@ -23,6 +23,7 @@ struct FrameView: View {
                 height: geometry.size.height,
                 alignment: .center)
               .clipped()
+              
           }
         } else {
           // 4

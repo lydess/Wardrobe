@@ -18,10 +18,13 @@ struct CameraView: View {
         ZStack {
             FrameView(image: model.frame)
                 .edgesIgnoringSafeArea(.all)
+                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))      // cameras are weird, this makes the output look more natural
             VStack {
                 HStack{
                     Button("<"){
-                        viewContext.currentScreen = 0
+                        viewContext.currentScreen = 1
+                        viewContext.cameraisshown = false
+                        viewContext.showsheet = true
                         
                     }.padding(.top,40)
                         .padding(.leading, 30)
@@ -55,9 +58,10 @@ struct CameraView: View {
                         Spacer()
                     }
                     Spacer()
-                    Button("save") {
-                        debugcase.photohash()
-                        GlobalContext.shared.savecapturedimage()
+                    Button("set image") {
+                        viewContext.currentScreen = 1
+                        viewContext.cameraisshown = false
+                        viewContext.showsheet = true
                         
                     }.padding(.bottom, 75)
                 }

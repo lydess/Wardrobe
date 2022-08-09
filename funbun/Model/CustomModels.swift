@@ -21,6 +21,15 @@ struct FormInput {
     var date = Date()
     var desc = ""
     var photo = Data()
+    
+    mutating func reset() {
+        self.type = .inventoryItem
+        self.name = ""
+        self.id = UUID()
+        self.date = Date()
+        self.desc = ""
+        self.photo = Data()
+    }
 }
 
 struct SelectionSymbol {
