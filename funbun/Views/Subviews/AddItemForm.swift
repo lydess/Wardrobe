@@ -29,10 +29,6 @@ struct AddItemForm: View {
                 }
                 TextField("", text: $nameTextField).textFieldStyle(.roundedBorder)
                 HStack {
-                    Text("Symbol")
-                    SelectionView(rowContent: GlobalContext.symbolbuttons)
-                }
-                HStack {
                     Text("Notes")
                         .padding()
                     Spacer()
@@ -54,8 +50,21 @@ struct AddItemForm: View {
                     Button(action: {
                         viewContext.currentScreen = 11
                         viewContext.cameraisshown.toggle()
+                        viewContext.showsheet.toggle()
                         
                     }, label: {Image(systemName: "camera")})
+                    
+                    Spacer()
+                }.padding()
+                HStack{
+                    if GlobalContext.shared.currentImage == nil {
+                        
+                    }else{
+                        Image(uiImage: UIImage(cgImage: GlobalContext.shared.currentImage!))
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .center)
+                            
+                    }
                 }
                 Button("Submit") {
                         var userFormInput = FormInput(type: .inventoryItem)

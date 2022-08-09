@@ -43,6 +43,7 @@ class DataBase: ObservableObject {
         item.date = form.date
         item.itemdesc = form.desc
         item.photo = form.photo
+        GlobalContext.shared.currentImage = nil
         save()
     }
     func removetopitem() async {

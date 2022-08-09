@@ -83,6 +83,7 @@ class CameraHandler: ObservableObject{
                 status = .failed
                 return
             }
+        
             
             defer {
                 
@@ -92,6 +93,7 @@ class CameraHandler: ObservableObject{
                 
                 // 1
                 let cameraInput = try AVCaptureDeviceInput(device: camera)
+                
                 // 2
                 if session.canAddInput(cameraInput) {
                     session.addInput(cameraInput)

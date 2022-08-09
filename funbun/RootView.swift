@@ -27,20 +27,26 @@ struct RootView: View {
         switch viewContext.currentScreen {
         case 0:
             HomeView()
+                .blur(radius: viewContext.showsheet ? 5 : 0)
                 
         case 1:
             DataBaseView()
                 .onAppear(perform: {changingviews.toggle()})
+                .blur(radius: viewContext.showsheet ? 5 : 0)
                 
         case 2:
             DebugView()
+                .blur(radius: viewContext.showsheet ? 5 : 0)
                 
         case 10:
             AddItemForm()
+            
         case 11:
             CameraView()
+            
         case 15:
             ItemDetailView()
+            
         default: Text("Broken Screen Number")
         }
             if changingviews {

@@ -17,7 +17,7 @@ class Debugtests {
         var ex = UIImage(cgImage: GlobalContext.shared.currentImage!).pngData()
         print(binphoto?.bytesPerRow)
         var blob = ex! as Data
-        print(blob[3].words)
+        GlobalContext.shared.currentFormInput.photo = blob
     }
 }
 
