@@ -12,6 +12,7 @@ import SwiftUI
 class Debugtests: ObservableObject {
     var uib = UIKeyboardType(rawValue: 1)
     var binphoto = GlobalContext.shared.currentImage
+    let notif = NotificationCenter.default
     
     
     func photohash() {
@@ -19,6 +20,11 @@ class Debugtests: ObservableObject {
         print(binphoto?.bytesPerRow)
         var blob = ex! as Data
         GlobalContext.shared.currentFormInput.photo = blob
+    }
+    
+    func testresponder() {
+        
+       
     }
     
 }

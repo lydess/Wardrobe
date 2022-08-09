@@ -10,6 +10,8 @@ let API = Networking()
 
 struct DebugView: View {
     var debugcase = Debugtests()
+    let pub = NotificationCenter.default
+        .publisher(for: UIResponder.keyboardWillShowNotification)
     @State var sheetdisplay = false
     @StateObject var viewContext = globalcontext
     @State var deleteItemIndicator = false
@@ -20,23 +22,23 @@ struct DebugView: View {
             Text("Debug view").font(.largeTitle).bold()
             Spacer()
             VStack {
-                Button("Delete DB item") {
-                    deleteItemIndicator.toggle()
-                }
                 TextField("enter text", text: $texttest)
-                if deleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
-                    await dataHandler.removetopitem()
-                    await viewContext.updateList()
-                    deleteItemIndicator.toggle()
-                }}
-            }.frame(width: screenWidth, height: 100, alignment: .center).offset(x: 0, y: -300)
-            Button("get user defaults") {print(userdefaults.string(forKey: "name_preference"))}
-            SelectionView(rowContent: GlobalContext.symbolbuttons).background(.red)
-            Button("bitmap info"){debugcase.photohash()}
+                    .onReceive(pub, perform: {_ in
+                        GlobalContext.shared.keyboardisshown = true
+                    })
+                Button("responder test"){
+                    
+                }
+               
+           
+          
+         
             Spacer()
             
         }
     }
+    }
+    
 }
 
 struct DebugView_Previews: PreviewProvider {
@@ -44,3 +46,4 @@ struct DebugView_Previews: PreviewProvider {
         DebugView()
     }
 }
+

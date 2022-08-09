@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddItemForm: View {
+    
     @State var nameTextField = ""
     @State var descriptionTextfield = ""
     @State var datechosen = Date()
@@ -47,12 +48,15 @@ struct AddItemForm: View {
                     .submitLabel(.done)
                     .focused($focusedField, equals: .name)
                     
+                    
                 HStack {
                     Text("Notes")
                     HStack {
                         TextField("", text: $descriptionTextfield).textFieldStyle(.roundedBorder)
                             .submitLabel(.done)
                             .focused($focusedField, equals: .descirption)
+                            
+                        
                             
                             
                             
