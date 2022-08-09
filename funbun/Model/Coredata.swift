@@ -44,6 +44,8 @@ class DataBase: ObservableObject {
         item.itemdesc = form.desc
         item.photo = form.photo
         GlobalContext.shared.currentImage = nil
+        GlobalContext.shared.currentFormInput.reset()
+        print("Saved new item to persistant store, reseting current form....")
         save()
     }
     func removetopitem() async {
