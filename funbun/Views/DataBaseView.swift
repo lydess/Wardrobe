@@ -14,7 +14,6 @@ struct DataBaseView: View {
     @State var offsetX = CGFloat(0)
     @State var showAddItem = false
     var body: some View {
-        
         VStack {
             HStack {
                 Spacer()
@@ -35,9 +34,9 @@ struct DataBaseView: View {
             if deleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await dataHandler.removetopitem()
                 await viewContext.updateList()
-                deleteItemIndicator.toggle()
-            }}
-        }    
+                deleteItemIndicator.toggle()}
+            }
+        }
     }
 }
 

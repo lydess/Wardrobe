@@ -17,7 +17,6 @@ class GlobalContext: ObservableObject {
     static var cellBackground = Color(uiColor: UIColor(named: "CellColor")!)
     static var symbolbuttons = Longvars.selectionset
     static let shared = GlobalContext()
-    @Published var currentFormInput = FormInput(type: .inventoryItem, name: "", id: UUID(), date: Date(timeIntervalSinceNow: 1), desc: "", photo: Data())
     @Published var currentScreen = 1
     @Published var currentList = [Items]()
     @Published var showsheet = false
@@ -26,23 +25,26 @@ class GlobalContext: ObservableObject {
     @Published var currentImage: CGImage?
     @Published var cameraisshown = false
     @Published var keyboardisshown = false
+    @Published var currentFormInput = FormInput(type: .inventoryItem,
+                                                name: "", id: UUID(),
+                                                date: Date(timeIntervalSinceNow: 1),
+                                                desc: "",
+                                                photo: Data())
     
     // Updates the ViewModel With the current list in the database
     // Use this method in UI element actions that alter the DB in a way that needs to be reflected to the user context
-    
     func updateList() async {
         currentList = await dataHandler.getDBItems()
     }
     func removeFromList(cellid: UUID) async {
         await dataHandler.deleteWithCellID(cellid: cellid)
     }
-    func getcapturedimage(image:CGImage){
+    func getcapturedimage(image:CGImage) {
         self.currentImage = image
     }
     func savecapturedimage() {
         PHPhotoLibrary.requestAuthorization { status in
             guard status == .authorized else {return}
-            
         }
         UIImageWriteToSavedPhotosAlbum(UIImage(cgImage: GlobalContext.shared.currentImage!), nil, nil, nil)
         self.currentImage = nil

@@ -10,13 +10,12 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
-class CameraHandler: ObservableObject{
+class CameraHandler: ObservableObject {
     // 1
     @Published var error: AVError.Code?
     @Published var campos = AVCaptureDevice.Position.back
     // 2
     let session = AVCaptureSession()
-    
     // 3
     private let sessionQueue = DispatchQueue(label: "com.lydess.SessionQ")
     // 4
@@ -43,8 +42,6 @@ class CameraHandler: ObservableObject{
             self.configureCaptureSession()
             self.session.startRunning()
           }
-
-          
       }
     func cameraswap() {
         postoggle()
@@ -55,8 +52,6 @@ class CameraHandler: ObservableObject{
             self.configureCaptureSession()
             self.session.startRunning()
             self.status = .configured
-            
-            
         }
     }
     
@@ -64,7 +59,7 @@ class CameraHandler: ObservableObject{
         if self.campos == AVCaptureDevice.Position.front {
             self.campos = AVCaptureDevice.Position.back
             return
-        }else{
+        } else {
             self.campos = AVCaptureDevice.Position.front
         }
     }
@@ -83,17 +78,13 @@ class CameraHandler: ObservableObject{
                 status = .failed
                 return
             }
-        
-            
             defer {
-                
                 session.commitConfiguration()
             }
             do {
                 
                 // 1
                 let cameraInput = try AVCaptureDeviceInput(device: camera)
-                
                 // 2
                 if session.canAddInput(cameraInput) {
                     session.addInput(cameraInput)
@@ -125,27 +116,14 @@ class CameraHandler: ObservableObject{
                 status = .failed
                 return
             }
-            
-            
             status = .configured
 
     }
-    
     func removeinputs() {
         session.beginConfiguration()
-        do {
-            session.removeInput(session.inputs[0])
-            session.removeOutput(session.outputs[0])
-            
-        } catch {
-            // 4
-            set(error: .sessionConfigurationChanged)
-            status = .failed
-            return
-        }
+        session.removeInput(session.inputs[0])
+        session.removeOutput(session.outputs[0])
         session.commitConfiguration()
-            
-        
     }
 
     private func set(error: AVError.Code) {
@@ -155,7 +133,7 @@ class CameraHandler: ObservableObject{
     private func checkPermissions() {
       // 1
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .notDetermined:
+        case .notDetermined:
                 // 2
                 sessionQueue.suspend()
                 AVCaptureDevice.requestAccess(for: .video) { authorized in
@@ -167,17 +145,17 @@ class CameraHandler: ObservableObject{
                     self.sessionQueue.resume()
                 }
                 // 4
-            case .restricted:
+        case .restricted:
                 status = .unauthorized
                 set(error: .applicationIsNotAuthorizedToUseDevice)
-            case .denied:
+        case .denied:
                 status = .unauthorized
                 set(error: .applicationIsNotAuthorizedToUseDevice)
                 // 5
-            case .authorized:
+        case .authorized:
                 break
                 // 6
-            @unknown default:
+        @unknown default:
                 status = .unauthorized
                 set(error: .applicationIsNotAuthorizedToUseDevice)
             }
@@ -190,7 +168,4 @@ class CameraHandler: ObservableObject{
         self.videoOutput.setSampleBufferDelegate(delegate, queue: queue)
       }
     }
-
-
-
 }

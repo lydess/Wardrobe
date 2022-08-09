@@ -26,19 +26,13 @@ struct DebugView: View {
                     .onReceive(pub, perform: {_ in
                         GlobalContext.shared.keyboardisshown = true
                     })
-                Button("responder test"){
-                    
+                Button("responder test") {
                 }
-               
-           
-          
-         
             Spacer()
             
         }
     }
     }
-    
 }
 
 struct DebugView_Previews: PreviewProvider {
@@ -46,4 +40,3 @@ struct DebugView_Previews: PreviewProvider {
         DebugView()
     }
 }
-

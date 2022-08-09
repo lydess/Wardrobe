@@ -90,8 +90,7 @@ struct WardrobeItemCell: View {
             }
             }
             Spacer()
-        }
-        
+        } 
     }
 }
 

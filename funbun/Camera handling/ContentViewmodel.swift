@@ -17,8 +17,6 @@ class ContentViewModel: ObservableObject {
     private let cameraManager = CameraHandler.shared
     private let frameManager = FrameManager.shared
     
-    
-
   init() {
     setupSubscriptions()
   }

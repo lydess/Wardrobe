@@ -20,7 +20,7 @@ struct AddItemForm: View {
     enum Fieldfocus {
         case name
         case descirption
-        case NA
+        case noneFocused
     }
     
 
@@ -34,9 +34,8 @@ struct AddItemForm: View {
                         .padding()
                     Spacer()
                     Button(action: {
-                        viewContext.showsheet.toggle()
-                        
-                    },     label: {
+                        viewContext.showsheet.toggle()},
+                           label: {
                         Image(systemName: "x.circle")
                         .foregroundColor(.blue)
                         .font(.system(size: 26))
@@ -47,20 +46,12 @@ struct AddItemForm: View {
                     .textFieldStyle(.roundedBorder)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .name)
-                    
-                    
                 HStack {
                     Text("Notes")
                     HStack {
                         TextField("", text: $descriptionTextfield).textFieldStyle(.roundedBorder)
                             .submitLabel(.done)
                             .focused($focusedField, equals: .descirption)
-                            
-                        
-                            
-                            
-                            
-                            
                         Spacer()
                     }
                 }
@@ -76,19 +67,16 @@ struct AddItemForm: View {
                         viewContext.currentScreen = 11
                         viewContext.cameraisshown.toggle()
                         viewContext.showsheet.toggle()
-                        
                     }, label: {Image(systemName: "camera")})
-                    
                     Spacer()
                 }.padding()
-                HStack{
+                HStack {
                     if GlobalContext.shared.currentImage == nil {
                         
-                    }else{
+                    } else {
                         Image(uiImage: UIImage(cgImage: GlobalContext.shared.currentImage!))
                             .resizable()
                             .frame(width: 100, height: 100, alignment: .center)
-                            
                     }
                 }
                 Button("Submit") {
@@ -101,13 +89,10 @@ struct AddItemForm: View {
                             if GlobalContext.shared.currentImage != nil {
                                 userFormInput.photo = UIImage(cgImage: GlobalContext.shared.currentImage!).pngData()!
                             }
-                            
                             dataHandler.addForm(form: userFormInput)
                             indicator.toggle()
                 }
-                
                 .buttonStyle(.borderedProminent)
-                
                     if indicator {
                         ProgressView().progressViewStyle(.circular).task {
                             _ = await dataHandler.getDBItems()
@@ -124,7 +109,6 @@ struct AddItemForm: View {
             descriptionTextfield = viewContext.currentFormInput.desc
             nameTextField = viewContext.currentFormInput.name
             datechosen = viewContext.currentFormInput.date
-            
         })
         .onDisappear(perform: {
             viewContext.currentFormInput.id = UUID()
@@ -133,12 +117,10 @@ struct AddItemForm: View {
             viewContext.currentFormInput.date = datechosen
         })
         .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             print("tap")
         }
-        
     }
-    
     }
 }
 

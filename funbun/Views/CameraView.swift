@@ -18,15 +18,15 @@ struct CameraView: View {
         ZStack {
             FrameView(image: model.frame)
                 .edgesIgnoringSafeArea(.all)
-                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))      // cameras are weird, this makes the output look more natural
+                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+            // cameras are weird, this makes the output look more natural
             VStack {
-                HStack{
-                    Button("<"){
+                HStack {
+                    Button("<") {
                         viewContext.currentScreen = 1
                         viewContext.cameraisshown = false
                         viewContext.showsheet = true
-                        
-                    }.padding(.top,40)
+                    }.padding(.top, 40)
                         .padding(.leading, 30)
                     Spacer()
                 }
@@ -48,13 +48,11 @@ struct CameraView: View {
                 Image(uiImage: UIImage(cgImage: GlobalContext.shared.currentImage!))
                     .resizable()
                     .frame(width: screenWidth, height: screenHeight, alignment: .center)
-                    
                 VStack {
-                    HStack{
-                        Button("X"){
+                    HStack {
+                        Button("X") {
                             GlobalContext.shared.currentImage = nil
-                            
-                        }.padding([.top, .leading],40)
+                        }.padding([.top, .leading], 40)
                         Spacer()
                     }
                     Spacer()
@@ -62,7 +60,6 @@ struct CameraView: View {
                         viewContext.currentScreen = 1
                         viewContext.cameraisshown = false
                         viewContext.showsheet = true
-                        
                     }.padding(.bottom, 75)
                 }
             }

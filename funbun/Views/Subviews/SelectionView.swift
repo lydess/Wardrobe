@@ -18,7 +18,6 @@ struct SelectionView: View {
                     Image(systemName: item.name)
                         .gesture(TapGesture()
                             )}
-                
                         }
         }.frame(width: screenWidth - 200, height: 35, alignment: .center)
         .padding(.leading, 10)

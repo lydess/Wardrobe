@@ -9,17 +9,21 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class KeyBoardHandler : ObservableObject {
+class KeyBoardHandler: ObservableObject {
     static let shared = KeyBoardHandler()
-    @Published var keyboardFrame: CGRect? = nil
 
     init() {
             let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(willshow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(willhide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(willshow),
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(willhide),
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
         
         }
-    
     @objc func willshow() {
             print("keyboard will show")
         }

@@ -13,8 +13,6 @@ class Debugtests: ObservableObject {
     var uib = UIKeyboardType(rawValue: 1)
     var binphoto = GlobalContext.shared.currentImage
     let notif = NotificationCenter.default
-    
-    
     func photohash() {
         var ex = UIImage(cgImage: GlobalContext.shared.currentImage!).pngData()
         print(binphoto?.bytesPerRow)
@@ -23,8 +21,6 @@ class Debugtests: ObservableObject {
     }
     
     func testresponder() {
-        
-       
     }
     
 }

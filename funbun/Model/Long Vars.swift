@@ -14,5 +14,5 @@ class Longvars {
                                SelectionSymbol(name: "cart", id: UUID()),
                                SelectionSymbol(name: "car.circle", id: UUID()),
                                SelectionSymbol(name: "graduationcap.circle", id: UUID()) ]
-    
+
 }

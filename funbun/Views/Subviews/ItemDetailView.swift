@@ -11,7 +11,6 @@ struct ItemDetailView: View {
     @StateObject var viewcontext = GlobalContext()
     var xpadding = CGFloat(20)
     var body: some View {
-        
         VStack {
             HStack {
                 Button(action: {
@@ -28,17 +27,12 @@ struct ItemDetailView: View {
             }
             Spacer()
             VStack {
-                Text(viewcontext.loadedItem.itemdesc).padding(.top,50)
+                Text(viewcontext.loadedItem.itemdesc).padding(.top, 50)
                 Spacer()
                 Text("Image")
                 Spacer()
             }
             Spacer()
-            
         }
-        
     }
 }
-
-
-
