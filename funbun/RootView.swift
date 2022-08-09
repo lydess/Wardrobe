@@ -50,7 +50,7 @@ struct RootView: View {
                 .onAppear(perform: {changingviews.toggle()})
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 2:
-            DebugView()
+            DebugView(testimg: Image(systemName: "Circle"))
                 .blur(radius: viewContext.showsheet ? 5 : 0)
         case 10:
             AddItemForm()

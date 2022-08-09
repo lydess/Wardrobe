@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class DataBase: ObservableObject {
      var context: NSPersistentContainer = {
@@ -101,5 +102,22 @@ class DataBase: ObservableObject {
             print("failure")
         }
         return final
+    }
+    func getImageFromDB(id: UUID) async -> Data {
+        var finaldata = Data()
+        let fetchrequest: NSFetchRequest<Items> = Items.fetchRequest()
+        fetchrequest.returnsObjectsAsFaults = false
+
+        let pred = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchrequest.predicate = pred
+        do {
+            try await context.viewContext.perform {
+            let result = try fetchrequest.execute()
+                finaldata = result[0].photo!
+        }
+        } catch {
+            print("failure")
+        }
+        return finaldata
     }
 }

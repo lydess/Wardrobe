@@ -29,7 +29,6 @@ struct ItemDetailView: View {
             VStack {
                 Text(viewcontext.loadedItem.itemdesc).padding(.top, 50)
                 Spacer()
-                Text("Image")
                 Spacer()
             }
             Spacer()
