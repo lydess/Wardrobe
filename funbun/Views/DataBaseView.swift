@@ -25,7 +25,8 @@ struct DataBaseView: View {
                 })
             }.padding([.top, .trailing], 25)
             Spacer()
-            DbScrollView()
+            DbScrollView().ignoresSafeArea()
+            
             Spacer()
             if addItemIndicator {ProgressView().progressViewStyle(.circular).task {
                 await viewContext.updateList()
@@ -36,9 +37,7 @@ struct DataBaseView: View {
                 await viewContext.updateList()
                 deleteItemIndicator.toggle()
             }}
-        }
-        
-        
+        }    
     }
 }
 

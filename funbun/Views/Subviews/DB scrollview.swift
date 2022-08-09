@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DbScrollView: View {
+    
     @StateObject var viewContext = globalcontext
     var body: some View {
         VStack {
@@ -22,8 +23,11 @@ struct DbScrollView: View {
                 .buttonStyle(.plain)
             }
             }.menuIndicator(.hidden)
+                .ignoresSafeArea()
         }
+        
     }
+    
 }
 
 struct DbScrollView_Previews: PreviewProvider {

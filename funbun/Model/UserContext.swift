@@ -18,7 +18,7 @@ class GlobalContext: ObservableObject {
     static var symbolbuttons = Longvars.selectionset
     static let shared = GlobalContext()
     @Published var currentFormInput = FormInput(type: .inventoryItem, name: "", id: UUID(), date: Date(timeIntervalSinceNow: 1), desc: "", photo: Data())
-    @Published var currentScreen = 0
+    @Published var currentScreen = 1
     @Published var currentList = [Items]()
     @Published var showsheet = false
     @Published var isInDismiss = false    

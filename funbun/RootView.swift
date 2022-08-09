@@ -17,11 +17,12 @@ struct RootView: View {
     @StateObject var viewContext = globalcontext
     @State var changingviews = false
     
+    
     var body: some View {
         ZStack {
         VStack {
         Spacer()
-            NavBar()
+            NavBar().ignoresSafeArea(.keyboard)
         }
         VStack {
         switch viewContext.currentScreen {
@@ -33,6 +34,9 @@ struct RootView: View {
             DataBaseView()
                 .onAppear(perform: {changingviews.toggle()})
                 .blur(radius: viewContext.showsheet ? 5 : 0)
+                
+                
+                
                 
         case 2:
             DebugView()
@@ -57,10 +61,18 @@ struct RootView: View {
             }
                 }
             if viewContext.showsheet && viewContext.cameraisshown == false {
-                AddItemForm()
-                    .frame(width: screenWidth - 100, height: screenHeight-150, alignment: .top)
-                    .cornerRadius(15)
-                    .foregroundColor(.black)
+                
+                ZStack {
+                    HStack {
+                        Spacer().frame(width: 10, height: 10, alignment: .center)
+                        AddItemForm()
+                            .cornerRadius(15)
+                            .foregroundColor(.black)
+                            Spacer().frame(width: 10, height: 10, alignment: .center)
+                            
+                    }
+                }
+                    
                     
             }
                 }
@@ -69,6 +81,8 @@ struct RootView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
         RootView()
     }

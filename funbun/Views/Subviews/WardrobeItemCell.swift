@@ -21,7 +21,8 @@ struct WardrobeItemCell: View {
     @State var deleteConfirmation = false
     var body: some View {
         HStack {
-            Rectangle().frame(width: 1, height: 65, alignment: .trailing).foregroundColor(.clear).padding(.trailing, 60)
+            
+            Spacer().frame(width: 50, height: 10, alignment: .center)
             HStack {
                 itemimage
                 Text(itemtitle).lineLimit(2).padding(.trailing, 0)
@@ -88,7 +89,9 @@ struct WardrobeItemCell: View {
                 deleteConfirmation.toggle()
             }
             }
+            Spacer()
         }
+        
     }
 }
 

@@ -17,6 +17,7 @@ struct FunbunApp: App {
             RootView()
                 .environment(\.managedObjectContext, datamanager.context.viewContext)
                 .background(GlobalContext.rootbackground)
+                
         }.onChange(of: scenePhase, perform: { phase in
             if phase == .background {print("hiding away")}
             if phase == .active {print("hello im back")}

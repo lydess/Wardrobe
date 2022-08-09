@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class Debugtests {
+class Debugtests: ObservableObject {
     var uib = UIKeyboardType(rawValue: 1)
     var binphoto = GlobalContext.shared.currentImage
     
@@ -19,6 +20,7 @@ class Debugtests {
         var blob = ex! as Data
         GlobalContext.shared.currentFormInput.photo = blob
     }
+    
 }
 
 struct Testjson: Codable {

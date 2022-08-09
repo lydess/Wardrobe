@@ -14,6 +14,7 @@ struct DebugView: View {
     @StateObject var viewContext = globalcontext
     @State var deleteItemIndicator = false
     @State var isCallingAPI = false
+    @State var texttest = ""
     var body: some View {
         VStack {
             Text("Debug view").font(.largeTitle).bold()
@@ -22,6 +23,7 @@ struct DebugView: View {
                 Button("Delete DB item") {
                     deleteItemIndicator.toggle()
                 }
+                TextField("enter text", text: $texttest)
                 if deleteItemIndicator {ProgressView().progressViewStyle(.circular).task {
                     await dataHandler.removetopitem()
                     await viewContext.updateList()
@@ -32,6 +34,7 @@ struct DebugView: View {
             SelectionView(rowContent: GlobalContext.symbolbuttons).background(.red)
             Button("bitmap info"){debugcase.photohash()}
             Spacer()
+            
         }
     }
 }
