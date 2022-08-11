@@ -21,7 +21,7 @@ class GlobalContext: ObservableObject {
     @Published var currentList = [Items]()
     @Published var showsheet = false
     @Published var isInDismiss = false    
-    @Published var loadedItem = WardrobeItemCell(itemtitle: "Debug", cellid: UUID(), itemdesc: "debug desc")
+    @Published var loadedItem = WardrobeItemCell(itemtitle: "Debug", cellid: UUID(), itemdesc: "debug desc", itemimage: Image(systemName: "circle"))
     @Published var currentImage: CGImage?
     @Published var cameraisshown = false
     @Published var keyboardisshown = false

@@ -30,17 +30,7 @@ struct DebugView: View {
                 Button("responder test") {
                     isCallingAPI.toggle()
                 }
-                if isCallingAPI {
-                    ProgressView().progressViewStyle(.circular).task {
-                        let items = await dataHandler.getDBItems()
-                        let example = items[0].id
-                        var img = await dataHandler.getImageFromDB(id: example!)
-                        self.testimg = Image(uiImage: UIImage(data: img)!)
-                        
-                    }
-                } else {
-                    testimg
-                }
+                
             Spacer()
         }
     }
@@ -49,6 +39,6 @@ struct DebugView: View {
 
 struct DebugView_Previews: PreviewProvider {
     static var previews: some View {
-        DebugView(testimg: Image(systemName: "circle"))
+        DebugView(testimg: Image(systemName: "signature"))
     }
 }

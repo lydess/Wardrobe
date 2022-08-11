@@ -16,8 +16,6 @@ let keyboardwillshow = NotificationCenter.default
     .publisher(for: UIResponder.keyboardWillShowNotification)
 let keyboardwillhide = NotificationCenter.default
     .publisher(for: UIResponder.keyboardWillHideNotification)
-
-
 struct RootView: View {
     @State var keyboardisshown = false
     @StateObject var viewContext = globalcontext
@@ -37,7 +35,6 @@ struct RootView: View {
                     keyboardisshown = true
                     print("hiding nav bar")
                 })
-                    
             }
         }
         VStack {
@@ -58,7 +55,6 @@ struct RootView: View {
             CameraView()
         case 15:
             ItemDetailView()
-            
         default: Text("Broken Screen Number")
         }
             if changingviews {
@@ -69,7 +65,6 @@ struct RootView: View {
             }
                 }
             if viewContext.showsheet && viewContext.cameraisshown == false {
-                
                 ZStack {
                     HStack {
                         Spacer().frame(width: 10, height: 10, alignment: .center)
@@ -77,20 +72,14 @@ struct RootView: View {
                             .cornerRadius(15)
                             .foregroundColor(.black)
                             Spacer().frame(width: 10, height: 10, alignment: .center)
-                            
                     }
                 }
-                    
-                    
             }
                 }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         RootView()
     }

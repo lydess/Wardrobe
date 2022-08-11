@@ -11,7 +11,7 @@ struct WardrobeItemCell: View {
     var itemtitle: String
     var cellid: UUID
     var itemdesc: String
-    var itemimage = Image(systemName: "tshirt")
+    var itemimage:Image
     @StateObject var viewContext = globalcontext
     @State var deleteicon = false
     @State var offsetX = CGFloat(0)
@@ -96,6 +96,6 @@ struct WardrobeItemCell: View {
 
 struct WardrobeItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        WardrobeItemCell(itemtitle: "Debug name", cellid: UUID(), itemdesc: "debug desc")
+        WardrobeItemCell(itemtitle: "Debug name", cellid: UUID(), itemdesc: "debug desc", itemimage: Image(systemName: "circle"))
     }
 }

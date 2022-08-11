@@ -17,11 +17,18 @@ struct FunbunApp: App {
             RootView()
                 .environment(\.managedObjectContext, datamanager.context.viewContext)
                 .background(GlobalContext.rootbackground)
-                
+                .onAppear(perform: {
+    #if Dev_env
+                    print("executing in DEV Configuration")
+    #else
+                    print("executing in PROD Configuration")
+    #endif
+                })
+            
         }.onChange(of: scenePhase, perform: { phase in
-            if phase == .background {print("hiding away")}
-            if phase == .active {print("hello im back")}
-            if phase == .inactive {print("sleep mode activated")}
+            if phase == .background {print("Entering Background")}
+            if phase == .active {print("Becoming Active")}
+            if phase == .inactive {print("Entering Inactive State")}
         })
     }
 }
