@@ -12,6 +12,7 @@ struct DebugView: View {
     var debugcase = Debugtests()
     let pub = NotificationCenter.default
         .publisher(for: UIResponder.keyboardWillShowNotification)
+    
     @State var sheetdisplay = false
     @StateObject var viewContext = globalcontext
     @State var deleteItemIndicator = false
@@ -29,6 +30,15 @@ struct DebugView: View {
                     })
                 Button("responder test") {
                     isCallingAPI.toggle()
+                    let testvar = Bundle.main.infoDictionary?["SETTINGNAME"] as? String
+                    print(testvar)
+                }
+                if isCallingAPI {
+                    ProgressView().task {
+                        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+
+                        print(appVersion!)
+                    }
                 }
                 
             Spacer()

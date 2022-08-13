@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  funbun
+//
+//  Created by william Vise on 13/8/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUILDTOTAL = 0
+SETTINGNAME = 1
+MARKETING_VERSION = $(inherited) + 1
